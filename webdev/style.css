@@ -30,9 +30,7 @@ display: none;
     text-decoration: none;
 }
 header{
-
     height: 95px;
-    /* background-color: black; */
 }
 
 .interactiveAbout:hover{
@@ -44,34 +42,24 @@ header{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
     padding-left: 2px;
-    /* margin-left: 25px; */
-
 }
 .H2_mainPage{
-
     width: 734px;
     height: 75px;
-    /* left: calc(50% - 730px/2);
-    top: calc(50% - 75px/2 - 104.5px); */
-
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
     font-size: 64px;
     line-height: 75px;
-    /* identical to box height */
-    padding-top: 134px;
+     padding-top: 134px;
     display: flex;
     align-items: center;
     text-align: center;
     letter-spacing: 4.5px;
     text-transform: uppercase;
     margin: auto;
-
     color: #FFFFFF;
-
 }
 .p_mainPage{
     font-style: normal;
@@ -173,11 +161,9 @@ header{
 .block3{
     width: 1600px;
     height: 504px;
-    /* border: 1px solid; */
     display: flex;
-    justify-content: centet;
+    justify-content: space-between;
     align-items: flex-start;
-    /* position: relative; */
 }
 .block3_User{
     width: 298px;
@@ -212,15 +198,37 @@ header{
     color: #4E4E4E;
     margin: 0px 0px;
 }
-.block3_Images_Wrapper{
-    border: 1px solid;
-    position: absolute;
-    left:706px;
-    top: 82px;
-    bottom: 140px;
+.block3_ImgWrapr{
     width: 894px;
-    height: 282px;
+    height: 364px;
 }
-.block3_Images_Wrapper_images{
+.left-arrow{
+    width: 9px;
+    height: 14px;
+    padding-left:543px;
+}
+.right-arrow{
+    width: 9px;
+    height: 14px;
+    padding-left:16px;
+    padding-right:271px;
+}
+.block3-href :hover{
 
+    cursor: pointer;
+
+}
+.block3_ImgWrap_Navigation{
+    height: 17px;
+    padding-top: 82px;
+    padding-bottom: 20px;
+    display: flex;
+}
+.block3_ImgWrapr_images{
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+.block3_ImgWrapr_image{
+    padding-right: 30px;
 }
