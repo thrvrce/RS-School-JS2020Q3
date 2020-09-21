@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+body{
+    /* width: 1600px;
+    height: 744px; */
+    margin: auto;
+    font-family: 'Roboto', sans-serif;
+}
+.mainPage{
+    background-image: url(/assets/bg-image.png);
+    width: 1600px;
+    height: 744px;
+
+}
+nav{
+    padding-right: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+h1{
+display: none;
+}
+.navMenu{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 140%;
+    color: #FFFFFF;
+    opacity: 0.8;
+    text-decoration: none;
+}
+header{
+
+    height: 95px;
+    /* background-color: black; */
+}
+
+.interactiveAbout:hover{
+    background-color: whitesmoke;
+    color: black;
+}
+.mainPageBody{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    padding-left: 2px;
+    /* margin-left: 25px; */
+
+}
+.H2_mainPage{
+
+    width: 734px;
+    height: 75px;
+    /* left: calc(50% - 730px/2);
+    top: calc(50% - 75px/2 - 104.5px); */
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 64px;
+    line-height: 75px;
+    /* identical to box height */
+    padding-top: 134px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 4.5px;
+    text-transform: uppercase;
+    margin: auto;
+
+    color: #FFFFFF;
+
+}
+.p_mainPage{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 140%;
+    text-align: center;
+    color: #FFFFFF;
+    width: 504px;
+    height: 50px;
+    margin-top: 22px;
+}
+.get_started{
+    width: 184px;
+    height: 46px;
+    background: #00AFDB;
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    align-items: center;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12px;
+
+}
+.get_started:hover{
+    background: #009CC2;;
+
+}
+.socials{
+    margin-top: 183px;
+    width: 170px;
+    height: 20px;
+    bottom: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+.socials_round{
+    border-radius: 50%;
+    width: 17px;
+    height: 17px;
+
+    border: 1.5px solid #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    /* box-sizing: border-box;
+} */
