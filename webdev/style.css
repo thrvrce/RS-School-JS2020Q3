@@ -83,6 +83,7 @@ header{
     width: 504px;
     height: 50px;
     margin-top: 22px;
+    margin-bottom: 30px;
 }
 .get_started{
     width: 184px;
@@ -99,8 +100,6 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 12px;
-
 }
 .get_started:hover{
     background: #009CC2;;
@@ -129,4 +128,57 @@ header{
     justify-content: center;
     align-items: center;
     flex-direction: row;
+}
+.rappr{
+    width: 1062px;
+    height: 842px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 269px;
+    align-items: flex-start;
+
+    /* border: 1px solid; */
+}
+.rappr_TaB{
+    margin-top: 295px;
+    width: 407px;
+    height: 233px;
+
+    /* border: 1px solid; */
+}
+.rappr_TaB_h2{
+    width: 370px;
+    height: 57px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #373737;
+    margin-top: 0px;
+    margin-bottom: 21px;
+
+    /* border: 1px solid; */
+}
+.rappr_TaB_p{
+    width: 407px;
+    height: 80px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 143%;
+    color: #4E4E4E;
+    margin-top: 20px;
+    margin-bottom: 30px;
+
+    /* border: 1px solid; */
+}
+strong{
+    /* line-height: 150%; */
+}
+.rapr_Img{
+    margin-top: 120px;
+
+    /* border: 1px solid; */
 }
