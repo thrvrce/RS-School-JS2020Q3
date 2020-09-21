@@ -116,6 +116,9 @@ header{
     align-items: center;
     flex-direction: row;
 }
+.socials:hover{
+    cursor: pointer;
+}
 .socials_round{
     border-radius: 50%;
     width: 17px;
@@ -126,5 +129,4 @@ header{
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    /* box-sizing: border-box;
-} */
+}
