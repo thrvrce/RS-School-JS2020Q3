@@ -90,7 +90,7 @@ header{
     align-items: center;
 }
 .get_started:hover{
-    background: #009CC2;;
+    background: #009CC2;
 
 }
 .socials{
@@ -291,4 +291,74 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.SignUp{
+    width: 1600px;
+    height: 524px;
+    background-image: url(/assets/pexels-christina-morillo.png);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.formEmail{
+        margin: 200px 597px 220px 597px;
+        /* border: 1px solid red; */
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.formEmail-h2{
+    width: 381px;
+height: 28px;
+font-style: normal;
+font-weight: bold;
+font-size: 24px;
+line-height: 28px;
+text-align: center;
+letter-spacing: 1px;
+text-transform: uppercase;
+color: #FFFFFF;
+margin: 0px 0px 30px 0px;
+align-items: center;
+/* border: 1px solid; */
+}
+.formEmailForm{
+    border: 1px solid;
+    /* width: 340px;
+    height: 46px; */
+
+display: flex;
+/* justify-content: ; */
+
+align-items: center;
+}
+input{
+    /* border: 1px solid; */
+    width: 336px;
+    height: 44px;
+    background: #FFFFFF;
+border-radius: 0px;
+border: none;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 140%;
+color: #373737;
+
+/* opacity: 0.5; */
+}
+button{
+    border: none;
+    width: 64px;
+height: 46px;
+background-color: #00AFDB;
+border-radius: 0px;
+padding: 0px 0px 0px 0px;
+
+}
+button :hover{
+
+    cursor: pointer;
+
 }
