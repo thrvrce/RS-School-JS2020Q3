@@ -362,3 +362,117 @@ button :hover{
     cursor: pointer;
 
 }
+.download{
+    width: 1600px;
+height: 464px;
+position: relative;
+}
+.download-h2{
+    position: absolute;
+width: 250px;
+height: 28px;
+left: 675px;
+top: 120px;
+font-style: normal;
+font-weight: bold;
+font-size: 24px;
+line-height: 28px;
+/* display: flex;
+align-items: flex-end; */
+text-align: center;
+letter-spacing: 1px;
+text-transform: uppercase;
+
+columns: #373737;
+
+}
+.download-p{
+    position: absolute;
+width: 480px;
+height: 40px;
+left: 560px;
+top: 168px;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 140%;
+text-align: center;
+color: #4E4E4E;
+}
+.download-apple{
+    width: 186px;
+    height: 46px;
+    position: absolute;
+    left: 299px;
+    top: 238px;
+    background: #00AFDB;
+}
+.apple-img{
+    width: 59px;
+height: 46px;
+display: flex;
+align-content: flex-end;
+}
+.download-market{
+    width: 186px;
+    height: 46px;
+    position: absolute;
+}
+footer{
+    width: 1600px;
+height: 185px;
+background: #000000;
+/* display: flex;
+    justify-content: center;
+    align-items: flex-start; */
+
+
+
+/* body-14-reg */
+
+
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 140%;
+/* identical to box height, or 20px */
+
+position: relative;
+color: #FFFFFF;
+}
+.wrapF{
+    position: absolute;
+    width: 236px;
+    height: 20px;
+    left: 0px;
+    top: 0px;
+}
+.wrapFText1{
+    position: absolute;
+    width: 45px;
+    height: 20px;
+    left: 160px;
+    top: 73px;
+
+}
+.wrapFText2{
+    position: absolute;
+    width: 46px;
+    height: 20px;
+    left: 245px;
+    top: 73px;
+}
+.wrapFText3{
+    position: absolute;
+    width:65px;
+    height: 20px;
+    left: 331px;
+    top: 73px;
+}
+.f4{
+    position: absolute;
+    width:44px;
+    height: 45px;
+    left: 778px;
+    top:60px;
+}
