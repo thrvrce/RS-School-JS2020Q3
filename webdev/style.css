@@ -216,6 +216,7 @@ header{
 .block3-href :hover{
 
     cursor: pointer;
+    opacity: 0.5;
 
 }
 .block3_ImgWrap_Navigation{
@@ -231,4 +232,63 @@ header{
 }
 .block3_ImgWrapr_image{
     padding-right: 30px;
+}
+.implementRC{
+    width: 1600px;
+    height: 842px;
+    background: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+/* border: 1px solid; */
+}
+.implementRC-img{
+    padding:  120px 139px 140px 269px;
+    width: 407px;
+    height: 582px;
+}
+.implementRC-Content{
+    padding: 319px 378px 339px 0px;
+    width: 407px;
+    height: 185px;
+    display: flex;
+    flex-direction: column;
+}
+.implementRC-Content-h2{
+    margin: 0px 0px 21px 0px;
+    width: 298px;
+    height: 28px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #373737;
+}
+.implementRC-Content-p{
+    width: 407px;
+    height: 60px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 145%;
+    color: #4E4E4E;
+    margin: 0px 0px 29px 0px;
+}
+.implementRC-Content-learnMore{
+    width: 180px;
+    height: 46px;
+    background: #00AFDB;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
