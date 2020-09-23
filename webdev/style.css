@@ -91,6 +91,7 @@ header{
 }
 .get_started:hover{
     background: #009CC2;
+    cursor: pointer;
 
 }
 .socials{
