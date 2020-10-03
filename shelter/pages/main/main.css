@@ -22,7 +22,6 @@ h1 {
 
 body {
   width: 1280px;
-  margin: 0px auto;
 }
 
 .wrapper {
@@ -466,6 +465,100 @@ body {
 
 .center_card {
   margin: 0rem 3.7rem;
+}
+
+.help {
+  background-color: #FFFFFF;
+}
+
+.helpWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  margin-top: 8.1rem;
+}
+
+.helpH3 {
+  font-family: Georgia;
+  font-weight: 400;
+  font-size: 3.5rem;
+  font-style: normal;
+  line-height: 130%;
+  letter-spacing: 0.21rem;
+  text-align: center;
+  margin-bottom: 0.6rem;
+}
+
+.helpH3 span {
+  display: block;
+}
+
+.helpElementsWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.helpElement {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5.3rem 5.9rem 0rem;
+}
+
+.helpIcon {
+  margin-bottom: 3rem;
+  width: 6rem;
+  height: 6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.helpElementH4 {
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2.0rem;
+  line-height: 128%;
+  letter-spacing: 0.3rem;
+  word-spacing: 0.3rem;
+  color: #545454;
+  text-align: center;
+  letter-spacing: 0.15rem;
+  word-spacing: -0.2rem;
 }
 
 @media screen and (max-width: 1280px) {
