@@ -12,6 +12,9 @@ class Calculator{
       this.prevOperation = undefined;
       this.Res = undefined;
  }
+ fixFloat(number){
+  return parseFloat(number.toFixed(10));
+ }
  handleEven(event){
   console.log(event.type);
   let curButton = (event.type === 'click') ? event.target.innerText : event.key;
@@ -47,17 +50,17 @@ class Calculator{
      if (this.prevOperation !== undefined && this.Res !== undefined && curButton !== "√"){
       switch (this.prevOperation){
        case "^":
-        this.Res = this.Res ** (Number(this.tmpStr));
+        this.Res = this.fixFloat(this.Res ** (Number(this.tmpStr)));
         break;
        case "-":
-        this.Res = this.Res - (Number(this.tmpStr));
+        this.Res = this.fixFloat(this.Res - (Number(this.tmpStr)));
         break;
        case "+":
-        this.Res = this.Res + (Number(this.tmpStr));
+        this.Res = this.fixFloat(this.Res + (Number(this.tmpStr)));
         break;
        case "/":
         if ( (Number(this.tmpStr)) !== 0){
-         this.Res = this.Res / (Number(this.tmpStr));
+         this.Res = this.fixFloat(this.Res / (Number(this.tmpStr)));
         }
         else{
          this.clearAll();
@@ -65,7 +68,7 @@ class Calculator{
         }
         break;
        case "*":
-        this.Res = this.Res * (Number(this.tmpStr));
+        this.Res = this.fixFloat(this.Res * (Number(this.tmpStr)));
         break;
 
        default: break;
@@ -80,7 +83,7 @@ class Calculator{
      else if (curButton === "√"){
       let tmpNumber = Number(this.tmpStr);
       if (tmpNumber >= 0  && this.tmpStr !== ''){
-       this.tmpStr = String(tmpNumber ** (1/2));
+       this.tmpStr = String(this.fixFloat(tmpNumber ** (1/2)));
       }
       else{
        alert("Извлечение корня из отрицательного или пустого значения запрещено. Повторите ввод");
