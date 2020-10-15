@@ -12,6 +12,8 @@ body{
 
 div {
  border: 1px solid green;
+ overflow: hidden;
+
 }
 .calculator{
  margin: 10vh auto;
@@ -26,6 +28,7 @@ div {
 .number, .operation{
   height: 3rem;
   flex-basis: 25%;
+  text-transform: uppercase;
 
 }
 .text{
@@ -36,11 +39,15 @@ div {
  justify-content: center;
 
 }
-.history{
- text-align: right;
- font-size: 1.5rem;
-}
+// .history{
+//  text-align: right;
+//  font-size: 1.5rem;
+//  height: 1.5rem;
+// }
 .curValue{
  text-align: right;
  font-size: 2rem;
+ min-height: 2rem;
+ overflow: hidden;
+ text-overflow: clip;
 }
