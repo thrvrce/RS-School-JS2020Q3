@@ -6,7 +6,8 @@ let
  focus = document.querySelector(".focus")
  changeBackgroundPrev = document.querySelector(".changeBackgroundPrev"),
  changeBackgroundNext = document.querySelector(".changeBackgroundNext"),
- FocusHeader = document.querySelector(".FocusHeader")
+ FocusHeader = document.querySelector(".FocusHeader"),
+ newCitate = document.querySelector(".newCitate")
  //isNeedChangeBg = true,
  prevHourWhenBgChanged = -1;
 
@@ -170,10 +171,20 @@ function setfocus(e){
   }
  }
 }
-
-getName();
-getfocus();
-
+function getRandCitate(){
+ let requestURL = "https://type.fit/api/quotes";
+ let citates = {};
+ let request = new XMLHttpRequest();
+ request.open('GET', requestURL);
+ request.responseType = 'json';
+ request.send();
+ request.onload = function() {
+  let citates = request.response;
+  let rand = Math.floor(Math.random() * Math.floor(citates.length));
+  document.querySelector(".text").innerText = citates[rand]["text"];
+  document.querySelector(".author").innerText = citates[rand]["author"];
+ }
+}
 changeBackgroundPrev.addEventListener('click', function(e) {setBackgroundExt(e)})
 changeBackgroundNext.addEventListener('click', function(e) {setBackgroundExt(e)})
 
@@ -185,7 +196,15 @@ focus.addEventListener("keypress", function(e) {setfocus(e)});
 focus.addEventListener("click", function(e) {setfocus(e)});
 focus.addEventListener("blur", function(e) {setfocus(e)});
 
+newCitate.addEventListener("click", function(e) {getRandCitate()});
 
-
+getName();
+getfocus();
 setDateTime();
+getRandCitate();
+
+
+
+
+
 

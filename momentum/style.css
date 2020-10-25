@@ -44,5 +44,14 @@ h1{
  margin-left: 0.5rem;
 }
 .changeBackgroundPrev, .changeBackgroundNext:hover{ cursor: pointer;
-
+}
+h3{
+ margin-top: 10rem;
+}
+.newCitate{
+ font-size: 1rem;
+ text-decoration: underline;
+}
+.newCitate:hover{
+ cursor: pointer;
 }
