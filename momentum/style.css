@@ -1,0 +1,48 @@
+* {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+}
+body{
+ margin: 0 auto;
+ height: 100vh;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ text-align: center;
+ color: white;
+ transition: background-image 1s ease-in-out;
+}
+time{
+ font-size: 5rem;
+}
+.Date {
+ font-size: 2rem;
+}
+.timeWrapper{
+ display: flex;
+ align-items: center;
+}
+h1{
+ margin-bottom: 1rem;
+ display: flex;
+}
+.name{
+ min-width: 2rem;
+ max-width: 70vh;
+}
+.focus{
+ text-decoration: underline;
+ max-width: 100vh;
+ min-width: 2rem;
+}
+.changeBackgroundPrev{
+ margin-right: 0.5rem;
+}
+.changeBackgroundNext{
+ margin-left: 0.5rem;
+}
+.changeBackgroundPrev, .changeBackgroundNext:hover{ cursor: pointer;
+
+}
