@@ -11,10 +11,13 @@ body{
  align-items: center;
  justify-content: center;
  text-align: center;
- color: white;
+ color: antiquewhite;
  transition: background-image 1s ease-in-out;
 }
-
+.weatherWrapper{
+ margin-top: 1rem;
+ font-size: 2rem;
+}
 time{
  font-size: 5rem;
 }
@@ -37,6 +40,7 @@ h1{
  text-decoration: underline;
  max-width: 100vh;
  min-width: 2rem;
+ font-size: 3rem;
 }
 .changeBackgroundPrev{
  margin-right: 0.5rem;
@@ -47,10 +51,13 @@ h1{
 .changeBackgroundPrev, .changeBackgroundNext:hover{ cursor: pointer;
 }
 h3{
- margin-top: 10rem;
+ margin-top: 3rem;
+}
+.text, .author{
+ font-size: 2rem;
 }
 .newCitate{
- font-size: 1rem;
+ font-size: 2rem;
  text-decoration: underline;
 }
 .newCitate:hover{

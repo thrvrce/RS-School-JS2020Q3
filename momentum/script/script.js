@@ -10,15 +10,26 @@ let
  newCitate = document.querySelector(".newCitate"),
  City = document.querySelector('.City'),
  //isNeedChangeBg = true,
- backgroundSrcPath = "https://github.com/irinainina/ready-projects/tree/momentum/momentum/assets/images/",
+ backgroundSrcPath = "./assets/",
+ ArrOfBackgrounds = []
  // day = "day/",
  // evening = "evening/",
  // morning = "morning/",
  // night = "night/",
- gloHourForBackground = new Date().getHours();;
- function createMassiveOfBackgrounds (){
-  //Math.floor(Math.random() * (6));
- }
+  gloHourForBackground = new Date().getHours(),
+  additionHors = 0;
+  function createMassiveOfBackgrounds (_Len){
+   let tmpArr = [];
+   while (tmpArr.length !== _Len ){
+    let tmpBckgrndID = Math.floor(Math.random() * (_Len) + 1);
+    if  (!(tmpArr.includes(`${addZero(tmpBckgrndID)}.jpg`))){
+     tmpArr.push(`${addZero(tmpBckgrndID)}.jpg`);
+    }
+   }
+   return tmpArr;
+  }
+  ArrOfBackgrounds = createMassiveOfBackgrounds(6);
+  console.log(ArrOfBackgrounds);
 
  function getDayOfWeek (day){
   let dayOfWweek = "";
@@ -57,22 +68,42 @@ let
  function addZero (strToParse){
   return  ((parseInt(strToParse, 10) < 10) ? "0" : "") + strToParse;
  }
- function setBackground(imgID){
-  document.body.style.backgroundImage = `url(./assets/${imgID}.jpg)`;
-  //backgroundSrcPath = "https://github.com/irinainina/ready-projects/tree/momentum/momentum/assets/images/",
-  //document.body.style.backgroundImage = `url("${backgroundSrcPath}${getPartOfDay(imgID)}/0${imgID%6 +1}.jpg")`;
+ function setBackground(_hour){
+  //document.body.style.backgroundImage = `url(./assets/${_hour}.jpg)`;
+console.log(`${_hour%6} hour ${_hour}  partofday ${getPartOfDay(_hour)}`);
+  document.body.style.backgroundImage = `url(${backgroundSrcPath}${getPartOfDay(_hour)}/${ArrOfBackgrounds[_hour%6]})`;
+
 
  }
+ function setGloHourforBcgr (_newHour){
+  if( _newHour <0  ){
+   gloHourForBackground = 23;
+  }
+  else if ( _newHour > 23  ){
+   gloHourForBackground = 0;
+  }
+  else {
+   gloHourForBackground = _newHour;
+  }
+ }
  function setBackgroundExt(e){
-  let curbackgrountImfID = Number(document.body.style.backgroundImage.replace('url("./assets/', "").replace(`.jpg")`, ""));
+  // let curbackgrountImfID = Number(document.body.style.backgroundImage.replace('url("./assets/', "").replace(`.jpg")`, ""));
+  // if( e.target.innerText === "<" ){
+  //  document.body.style.backgroundImage = curbackgrountImfID === 0 ? `url(./assets/${23}.jpg)` : `url(./assets/${curbackgrountImfID-1}.jpg)`;
+  // }
+  // else{
+  //  document.body.style.backgroundImage = curbackgrountImfID === 23 ? `url(./assets/${0}.jpg)` : `url(./assets/${curbackgrountImfID+1}.jpg)`;
+  // }
+  // gloHourForBackground = new Date().getHours();
+
   if( e.target.innerText === "<" ){
-   document.body.style.backgroundImage = curbackgrountImfID === 0 ? `url(./assets/${23}.jpg)` : `url(./assets/${curbackgrountImfID-1}.jpg)`;
+   setGloHourforBcgr(gloHourForBackground -1);
   }
   else{
-   document.body.style.backgroundImage = curbackgrountImfID === 23 ? `url(./assets/${0}.jpg)` : `url(./assets/${curbackgrountImfID+1}.jpg)`;
+   setGloHourforBcgr(gloHourForBackground +1);
   }
-  //isNeedChangeBg = false;
-  gloHourForBackground = new Date().getHours();
+  setBackground(gloHourForBackground);
+
  }
  function getPartOfDay (hour){
   let PartOfDay = "";
@@ -105,14 +136,10 @@ setBackground(gloHourForBackground);
   date.innerText = `${getDayOfWeek(Day)}, ${getMonth(Month)} ${DaOfMonth}`;
   greeting.textContent = `Good ${getPartOfDay(hour)}, `;
 
-  if (gloHourForBackground !== hour){
-   //isNeedChangeBg = true;
-   gloHourForBackground = hour;
-
+  if (min === 0 && sec === 0){
+   setGloHourforBcgr(gloHourForBackground+1);
+   setBackground(gloHourForBackground);
   }
-  // if (isNeedChangeBg){
-
-  // }
 
   setTimeout(setDateTime, 1000);
 }
@@ -142,7 +169,7 @@ function getfocus(){
  focus.textContent = strForfocusField;
 }
 async function getWeather(_City) {
- console.log(_City);
+
  const url = `https://api.openweathermap.org/data/2.5/weather?q=${_City}&lang=en&appid=214da44507268740ef255574b1dda117&units=metric`;
  const res = await fetch(url);
  const data = await res.json();
@@ -152,12 +179,11 @@ async function getWeather(_City) {
  const weatherDescription = document.querySelector('.weather-description');
  weatherIcon.classList.add(`owf-${data.weather[0].id}`);
  temperature.textContent = `${data.main.temp}°C`;
- weatherDescription.textContent = `${data.weather[0].description}, humidity ${data.main.humidity}%, speed of wind ${data.wind.speed} m/c`;
+ weatherDescription.textContent = `${data.weather[0].description}, humidity ${data.main.humidity}%, wind speed ${data.wind.speed} m/c`;
 
 }
 function getCity(){
  let strForCityField = "";
- console.log(123);
  if (localStorage.getItem("City") === null || localStorage.getItem("City") === ""){
   strForCityField = "[Enter City there]";
  }
@@ -227,17 +253,17 @@ function setCity(e){
   }
  }
 }
-async function getRandCitate(){
+ function getRandCitate(){
  let requestURL = "https://type.fit/api/quotes";
  let citates = {};
  let request = new XMLHttpRequest();
  request.open('GET', requestURL);
  request.responseType = 'json';
  request.send();
- request.onload = function() {
+ request.onload =  function() {
   let citates = request.response;
   let rand = Math.floor(Math.random() * Math.floor(citates.length));
-  document.querySelector(".text").innerText = citates[rand]["text"];
+  document.querySelector(".text").innerText = `"${citates[rand]["text"]}"`;
   document.querySelector(".author").innerText = citates[rand]["author"];
  }
 }
