@@ -579,24 +579,62 @@ body{
 
  }
 }
+footer{
+ background: url(/assets/main/footer/noise_transparent@2x.png), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
+}
 .footerWrapper{
  display: flex;
  justify-content: space-between;
- align-items: center;
- background: url(/assets/main/footer/noise_transparent@2x.png), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
+ align-items: flex-start;
+ margin: 4.1rem 4rem 0rem;
+
 }
-.QandS{
+.QandS, .visit{
  @include h3;
  color: $color-light-xl;
+ margin-top: 1.6rem;
+ display: flex;
+ flex-direction: column;
+
 }
+.mail, .phone, .bostonMap, .LondonMap{
+ display: flex;
+ justify-content: flex-start;
+ align-items: center;
+}
+.mail {
+ height: 3.2rem;
+ margin-top: 4.4rem;
+}
+.phone{
+ height: 3.2rem;
+ margin-top: 4rem;
+}
+
+
 .visit{
  @include h3;
  color: $color-light-xl;
+ display: flex;
+ flex-direction: column;
+ margin-left: -0.7rem;
 }
-a.footerText{
+.bostonMap{
+ margin-top: 3.5rem;
+}
+.LondonMap{
+ margin-top: 2.5rem;
+}
+.bostonMap .myLS, .LondonMap .myLS{
+ letter-spacing: 1px;
+}
+.footerText{
  @include h4;
  color: $color-primary;
+ margin-left: 2rem;
 }
+
+
 
 
 

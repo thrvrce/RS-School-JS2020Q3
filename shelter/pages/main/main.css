@@ -681,6 +681,10 @@ body {
   line-height: 1.8rem;
 }
 
+footer {
+  background: url(/assets/main/footer/noise_transparent@2x.png), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
+}
+
 .footerWrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -688,13 +692,13 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background: url(/assets/main/footer/noise_transparent@2x.png), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin: 4.1rem 4rem 0rem;
 }
 
-.QandS {
+.QandS, .visit {
   font-family: Georgia;
   font-weight: 400;
   font-size: 3.5rem;
@@ -702,6 +706,36 @@ body {
   line-height: 130%;
   letter-spacing: 0.21rem;
   color: #FFFFFF;
+  margin-top: 1.6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.mail, .phone, .bostonMap, .LondonMap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mail {
+  height: 3.2rem;
+  margin-top: 4.4rem;
+}
+
+.phone {
+  height: 3.2rem;
+  margin-top: 4rem;
 }
 
 .visit {
@@ -712,9 +746,29 @@ body {
   line-height: 130%;
   letter-spacing: 0.21rem;
   color: #FFFFFF;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: -0.7rem;
 }
 
-a.footerText {
+.bostonMap {
+  margin-top: 3.5rem;
+}
+
+.LondonMap {
+  margin-top: 2.5rem;
+}
+
+.bostonMap .myLS, .LondonMap .myLS {
+  letter-spacing: 1px;
+}
+
+.footerText {
   font-family: Georgia;
   font-style: normal;
   font-weight: normal;
@@ -723,6 +777,7 @@ a.footerText {
   letter-spacing: 0.3rem;
   word-spacing: 0.3rem;
   color: #F1CDB3;
+  margin-left: 2rem;
 }
 
 @media screen and (max-width: 1280px) {
