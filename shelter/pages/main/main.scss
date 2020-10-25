@@ -149,9 +149,10 @@ $footer-gradient-background         :   url(noise_lines_transparent@2X.png),
 a,
 a:active,
 a:visited,
-a:link{
+a:link,
+a:hover{
   text-decoration: none;
-
+  color: black;
 }
 h1{
     display: none;
@@ -463,6 +464,7 @@ body{
         align-items: center;
         width: 100%;
         margin-top: 8.1rem;
+        margin-bottom: 10rem;
         //width: 1200px;
 
     }
@@ -507,7 +509,94 @@ body{
         word-spacing: -0.2rem;
     }
 }
+.donation{
+ &_wrapper{
+  display: flex;
+  padding: 8rem 4rem 10rem;
+  justify-content: start;
+  background: $color-light-l;
+ }
+ &_image{
+  margin-left: 14.2rem;
+  margin-top: 1rem;
+ }
+ &_context{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 3rem;
+ }
+ &_context_h3{
+  @include h3;
+  color: $color-dark-l;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
 
+ }
+ &_context_h5{
+  @include h5;
+  color: $color-dark-l;
+  text-align: left;
+  margin-top: 2rem;
+ }
+ &_context_card{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 35rem;
+  height: 4.3rem;
+  background-color: $color-primary;
+  margin-top: 2rem;
+  width: 34.9rem;
+ height: 4.3rem;
+ border-radius: 1rem;
+ }
+ &_context_card_img{
+  width: 3rem;
+  height: 2.3rem;
+  margin-left: 1.5rem;
+ }
+ &_context_card_text{
+  @include h4;
+  color: $color-dark-l;
+  display: inline-block;
+  margin-left: 1.5rem;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+ }
+ &_context_text{
+  color: $color-dark-m;
+ font-family: Arial;
+ font-size: 1.2rem;
+ font-style: italic;
+ font-weight: 400;
+ display: flex;
+ flex-direction: column;
+ margin-top: 2rem;
+ line-height: 1.8rem;
+ //width: 28rem;
+
+ }
+}
+.footerWrapper{
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ background: url(/assets/main/footer/noise_transparent@2x.png), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
+}
+.QandS{
+ @include h3;
+ color: $color-light-xl;
+}
+.visit{
+ @include h3;
+ color: $color-light-xl;
+}
+a.footerText{
+ @include h4;
+ color: $color-primary;
+}
 
 
 

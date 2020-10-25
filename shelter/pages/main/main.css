@@ -12,8 +12,10 @@
 a,
 a:active,
 a:visited,
-a:link {
+a:link,
+a:hover {
   text-decoration: none;
+  color: black;
 }
 
 h1 {
@@ -487,6 +489,7 @@ body {
           align-items: center;
   width: 100%;
   margin-top: 8.1rem;
+  margin-bottom: 10rem;
 }
 
 .helpH3 {
@@ -559,6 +562,167 @@ body {
   text-align: center;
   letter-spacing: 0.15rem;
   word-spacing: -0.2rem;
+}
+
+.donation_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 8rem 4rem 10rem;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  background: #F6F6F6;
+}
+
+.donation_image {
+  margin-left: 14.2rem;
+  margin-top: 1rem;
+}
+
+.donation_context {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-left: 3rem;
+}
+
+.donation_context_h3 {
+  font-family: Georgia;
+  font-weight: 400;
+  font-size: 3.5rem;
+  font-style: normal;
+  line-height: 130%;
+  letter-spacing: 0.21rem;
+  color: #545454;
+  text-align: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.donation_context_h5 {
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5rem;
+  line-height: 110%;
+  letter-spacing: 0.06em;
+  color: #545454;
+  text-align: left;
+  margin-top: 2rem;
+}
+
+.donation_context_card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 35rem;
+  height: 4.3rem;
+  background-color: #F1CDB3;
+  margin-top: 2rem;
+  width: 34.9rem;
+  height: 4.3rem;
+  border-radius: 1rem;
+}
+
+.donation_context_card_img {
+  width: 3rem;
+  height: 2.3rem;
+  margin-left: 1.5rem;
+}
+
+.donation_context_card_text {
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2.0rem;
+  line-height: 128%;
+  letter-spacing: 0.3rem;
+  word-spacing: 0.3rem;
+  color: #545454;
+  display: inline-block;
+  margin-left: 1.5rem;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+}
+
+.donation_context_text {
+  color: #B2B2B2;
+  font-family: Arial;
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 2rem;
+  line-height: 1.8rem;
+}
+
+.footerWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: url(/assets/main/footer/noise_transparent@2x.png), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
+}
+
+.QandS {
+  font-family: Georgia;
+  font-weight: 400;
+  font-size: 3.5rem;
+  font-style: normal;
+  line-height: 130%;
+  letter-spacing: 0.21rem;
+  color: #FFFFFF;
+}
+
+.visit {
+  font-family: Georgia;
+  font-weight: 400;
+  font-size: 3.5rem;
+  font-style: normal;
+  line-height: 130%;
+  letter-spacing: 0.21rem;
+  color: #FFFFFF;
+}
+
+a.footerText {
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2.0rem;
+  line-height: 128%;
+  letter-spacing: 0.3rem;
+  word-spacing: 0.3rem;
+  color: #F1CDB3;
 }
 
 @media screen and (max-width: 1280px) {
