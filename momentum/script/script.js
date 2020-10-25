@@ -18,18 +18,19 @@ let
  // night = "night/",
   gloHourForBackground = new Date().getHours(),
   additionHors = 0;
-  function createMassiveOfBackgrounds (_Len){
+
+  function createMassiveOfBackgrounds (){
    let tmpArr = [];
-   while (tmpArr.length !== _Len ){
-    let tmpBckgrndID = Math.floor(Math.random() * (_Len) + 1);
+   while (tmpArr.length !== 6 ){
+    let tmpBckgrndID = Math.floor(Math.random() * (10) + 1);
     if  (!(tmpArr.includes(`${addZero(tmpBckgrndID)}.jpg`))){
      tmpArr.push(`${addZero(tmpBckgrndID)}.jpg`);
     }
    }
    return tmpArr;
   }
-  ArrOfBackgrounds = createMassiveOfBackgrounds(6);
-  console.log(ArrOfBackgrounds);
+  ArrOfBackgrounds = createMassiveOfBackgrounds();
+
 
  function getDayOfWeek (day){
   let dayOfWweek = "";
