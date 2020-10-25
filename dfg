@@ -1,0 +1,216 @@
+[33mcommit e0d1ea8fc3df291e8e25a2b9c9614fc5f731f5c1[m[33m ([m[1;36mHEAD -> [m[1;32mmomentum[m[33m, [m[1;31morigin/momentum[m[33m, [m[1;32mmomentum_[m[33m)[m
+Author: Victor Avdeev <avdeevvictor95@gmail.com>
+Date:   Sun Oct 25 15:44:22 2020 +0300
+
+    refactor: delete unused folders
+
+[33mcommit 894d2616420eefc26d5c291aef8bf54a7c41a2ee[m
+Merge: ed3d3d8 d13d19e
+Author: Victor Avdeev <avdeevvictor95@gmail.com>
+Date:   Sun Oct 25 15:40:16 2020 +0300
+
+    Merge remote-tracking branch 'origin/gh-pages' into momentum
+
+[33mcommit ed3d3d8d7ac26968c780338a7da38aab80845e3b[m
+Author: Victor Avdeev <avdeevvictor95@gmail.com>
+Date:   Sun Oct 25 14:56:58 2020 +0300
+
+    fix: backgroun images list
+
+[33mcommit 86b37e8af41a8db0dea8d37f68436f76522bd090[m
+Author: Victor Avdeev <avdeevvictor95@gmail.com>
+Date:   Sun Oct 25 14:12:02 2020 +0300
+
+    fix: backgroun change on demand and on time
+
+[33mcommit e810505f3cedbe9998d829a58127398dee001e5b[m
+Author: Victor Avdeev <avdeevvictor95@gmail.com>
+Date:   Sun Oct 25 06:57:03 2020 +0300
+
+    feat: add weather function
+
+[33mcommit 6f0065a533b1e53dd431c8ceb22e46c249e3d887[m
+Author: Victor Avdeev <avdeevvictor95@gmail.com>
+Date:   Sun Oct 25 05:05:37 2020 +0300
+
+    feat: add citate function
+
+[33mcommit 9e5dfbde69b1a8638f2809932e523149310d429f[m
+Author: Victor Avdeev <avdeevvictor95@gmail.com>
+Date:   Sun Oct 25 03:59:28 2020 +0300
+
+    feat: add basic function and background change on demand
+
+[33mcommit 0d3f42308f228d1386c58bd1f220d9924e8103f4[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Victor Avdeev <avdeevvictor95@gmail.com>
+Date:   Sat Oct 24 22:51:40 2020 +0300
+
+    fix: delete folder calculator
+
+[33mcommit d13d19e1a91e115564c06c18cf07dc9b272bd938[m
+Merge: 1736ef5 135cf8b
+Author: thrvrce <70852808+thrvrce@users.noreply.github.com>
+Date:   Thu Oct 15 18:30:17 2020 +0300
+
+    Merge pull request #5 from rolling-scopes-school/calculator
+    
+    Calculator deploy
+
+[33mcommit 135cf8be652cad737c53fce44d6a7f9bb1b508dc[m[33m ([m[1;31morigin/calculator[m[33m, [m[1;32mcalculator[m[33m)[m
+Author: Victor Avdeev <avdeevvictor95@gmail.com>
+Date:   Thu Oct 15 18:26:46 2020 +0300
+
+    feat: some css additions
+
+[33mcommit 887e889ce0feb6be42fde4e0b7b3b3ef3b00ac4a[m
+Author: Victor Avdeev <avdeevvictor95@gmail.com>
+Date:   Thu Oct 15 17:36:02 2020 +0300
+
+    feat: add fix for float problem
+
+[33mcommit 224c6ff4130b5c8041f0915f2daf99b3d2b05b76[m
+Author: Victor Avdeev <avdeevvictor95@gmail.com>
+Date:   Thu Oct 15 09:20:35 2020 +0300
+
+    feat: add first stable version of calculator(add 1-3 elements from task)
+
+[33mcommit 888846cfe4ab67f2cbf8db28b705e9d83d7fe917[m
+Author: Victor Avdeev <avdeevvictor95@gmail.com>
+Date:   Tue Oct 13 08:19:45 2020 +0300
+
+    feat : add basic calculator ui
+
+[33mcommit c970a324fa63388df7f9c9a5426a1fbecd2bcf9f[m
+Author: Victor Avdeev <avdeevvictor95@gmail.com>
+Date:   Tue Oct 13 07:39:12 2020 +0300
+
+    feat: add basic calculator ui
+
+[33mcommit cd3523b53601f0517a913d56955d537332485cc2[m
+Author: Victor Avdeev <avdeevvictor95@gmail.com>
+Date:   Tue Oct 13 04:59:08 2020 +0300
+
+    init: start calculator task
+
+[33mcommit 1736ef59489dcb2386e1beb008a4ea8cdbb9e9f6[m
+Merge: 599ccef bd4c38a
+Author: thrvrce <70852808+thrvrce@users.noreply.github.com>
+Date:   Wed Sep 23 22:46:09 2020 +0300
+
+    Merge pull request #4 from rolling-scopes-school/webdev
+    
+    Webdev.final
+
+[33mcommit bd4c38afaf6161e50cde203e8833c75fd7c1c4e9[m[33m ([m[1;31morigin/webdev[m[33m, [m[1;32mwebdev[m[33m)[m
+Author: Victor Avdeev <avdeevvictor95@gmail.com>
+Date:   Wed Sep 23 22:43:47 2020 +0300
+
+    fix: fix image implement block
+
+[33mcommit 28b88a8f19d6f3bff1cf59bd748673aa9a688402[m
+Author: Victor Avdeev <avdeevvictor95@gmail.com>
+Date:   Wed Sep 23 22:36:55 2020 +0300
+
+    feat: add button hover animation
+
+[33mcommit 47c95e72680d3b374ff9e390612c6e2f9f3a58f3[m
+Author: Victor Avdeev <avdeevvictor95@gmail.com>
+Date:   Wed Sep 23 22:35:20 2020 +0300
+
+    fix: fix header h1, fix socials main page animation
+
+[33mcommit c3acc1c711fbc94effe45eb8c0181ba5c8e4fb4d[m
+Author: Victor Avdeev <avdeevvictor95@gmail.com>
+Date:   Wed Sep 23 22:22:07 2020 +0300
+
+    fix: fix footer and other smal issues
+
+[33mcommit 14824598248bbd594521517cba6a3b6c68af9988[m
+Author: Victor Avdeev <avdeevvictor95@gmail.com>
+Date:   Wed Sep 23 04:27:52 2020 +0300
+
+    fix: fix download block
+
+[33mcommit 599ccef1dea2e6e4c1159080ceabaef7268e9c89[m
+Merge: 675187e 9c1e7b0
+Author: thrvrce <70852808+thrvrce@users.noreply.github.com>
+Date:   Tue Sep 22 00:03:17 2020 +0300
+
+    Merge pull request #3 from rolling-scopes-school/webdev
+    
+    fix: fixed url to background image
+
+[33mcommit 9c1e7b0ab96338fd4408f9ced71ae37213c77bdb[m
+Author: Victor Avdeev <avdeevvictor95@gmail.com>
+Date:   Tue Sep 22 00:01:52 2020 +0300
+
+    fix: fixed url to background image
+
+[33mcommit 675187ec0060b056dfec5e8dd806ee0a1a86a6ad[m
+Merge: dfbd4eb e06af38
+Author: thrvrce <70852808+thrvrce@users.noreply.github.com>
+Date:   Mon Sep 21 23:49:05 2020 +0300
+
+    Merge pull request #1 from rolling-scopes-school/webdev
+    
+    Webdev
+
+[33mcommit e06af3821b2bf51e8d9708a45f466605b476b5e7[m
+Author: Victor Avdeev <avdeevvictor95@gmail.com>
+Date:   Mon Sep 21 23:44:39 2020 +0300
+
+    feat: add footer
+
+[33mcommit 07008ebe9b2e2d3d38de044ef4c9c26be5fbdd20[m
+Author: Victor Avdeev <avdeevvictor95@gmail.com>
+Date:   Mon Sep 21 23:15:51 2020 +0300
+
+    feat: add sign up block
+
+[33mcommit 98d15ac3bc6197b654229e4b8818cefb5c8a03f5[m
+Author: Victor Avdeev <avdeevvictor95@gmail.com>
+Date:   Mon Sep 21 21:28:39 2020 +0300
+
+    feat: add implement block
+
+[33mcommit f6c545c518c302a93c121d4f43fcb56c72961f60[m
+Author: Victor Avdeev <avdeevvictor95@gmail.com>
+Date:   Mon Sep 21 20:29:22 2020 +0300
+
+    feat: add slider  in our community block
+
+[33mcommit 700f75b614b41fe513576605a5a5a1aedeea5b57[m
+Author: Victor Avdeev <avdeevvictor95@gmail.com>
+Date:   Mon Sep 21 18:27:09 2020 +0300
+
+    feat: add user photo and texxt in our community block
+
+[33mcommit 2b341ff7c87842305ae988c8497b636844efd668[m
+Author: Victor Avdeev <avdeevvictor95@gmail.com>
+Date:   Mon Sep 21 16:34:08 2020 +0300
+
+    feat: add rappresent block
+
+[33mcommit e68ebb5f37485977bab95e619e64f5f5ac38c605[m
+Author: Victor Avdeev <avdeevvictor95@gmail.com>
+Date:   Mon Sep 21 15:07:56 2020 +0300
+
+    feat: add cursor animation on social
+
+[33mcommit 6164df205056c5e7bcd4e12a8ef32d0759ecb762[m
+Author: Victor Avdeev <avdeevvictor95@gmail.com>
+Date:   Mon Sep 21 09:58:34 2020 +0300
+
+    feat: add 1st screen
+
+[33mcommit 48957f022d8e614d2011e27793b15f33eb9c68cd[m
+Author: Victor Avdeev <avdeevvictor95@gmail.com>
+Date:   Mon Sep 21 03:09:34 2020 +0300
+
+    init: start webdev task
+
+[33mcommit dfbd4ebd08bef30dcbf6e3dc5ab22360cc24876f[m
+Author: rs-app[bot] <57502719+rs-app[bot]@users.noreply.github.com>
+Date:   Wed Sep 16 16:48:45 2020 +0000
+
+    Initial commit
