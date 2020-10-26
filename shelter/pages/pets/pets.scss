@@ -278,11 +278,6 @@ body {
     flex-direction: row;
     margin-top: 4.5rem;
   }
-
-  // &__button :hover{
-  //     cursor: pointer;
-  // }
-
 }
 .btnWrap :hover {
  cursor: pointer;
@@ -312,11 +307,6 @@ body {
   color: $color-dark-s;
   border: 2px solid $color-dark-s;
 }
-
-// .center_card {
-//   margin: 0rem 3.7rem;
-// }
-
 footer {
   background: url(/assets/main/footer/noise_transparent@2x.png),
     radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%),
@@ -370,6 +360,9 @@ footer {
 .LondonMap .myLS {
   letter-spacing: 1px;
 }
+.footerTextLink{
+ align-self: baseline;
+}
 .footerText {
   @include h4;
   color: $color-primary;
@@ -380,4 +373,56 @@ footer {
   .wraper {
     padding: 0 4rem;
   }
+}
+@media screen and (max-width: 1279px){
+.header{
+ width: 768px;
+}
+body {
+ width: 768px;
+ //margin: 0px auto;
+}
+.main {
+ width: 768px;
+}
+.pets__content{
+ width: 768px;
+ padding-top: 1.5rem;
+ padding-left: 94px;
+ padding-right: 94px;
+}
+.pets__wrapper{
+ width: 768px;
+}
+.wrapper{
+ padding: 3rem 3rem 3rem 3rem;
+}
+.Scarlett , .Freddie{
+ display: none;
+}
+.pets{
+ padding-bottom: 76px;
+}
+.pets .pets_buttons{
+ margin-top: 2.5rem;
+}
+.footerWrapper{
+ margin-left: 30px;
+    margin-right: 30px;
+    flex-wrap: wrap;
+    justify-content: start;
+    margin-top: 14px;
+
+}
+.QandS{
+ padding-left: 34px;
+    padding-top: 0px;
+}
+.visit{
+ padding-left: 63px;
+}
+.footerImage{
+ padding-left: 204px;
+ padding-top: 54px;
+}
 }
