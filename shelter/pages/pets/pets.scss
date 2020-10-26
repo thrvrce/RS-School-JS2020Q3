@@ -1,0 +1,551 @@
+$color-light-s: #fafafa;
+$color-light-l: #f6f6f6;
+$color-light-xl: #ffffff;
+$color-dark-s: #cdcdcd;
+$color-dark-m: #b2b2b2;
+$color-dark-l: #545454;
+$color-dark-xl: #4c4c4c;
+$color-dark-2xl: #444444;
+$color-dark-3xl: #292929;
+$color-primary: #f1cdb3;
+$color-primary-light: #fddcc4;
+
+$footer-gradient-background: url(noise_lines_transparent@2X.png),
+  radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%),
+  #211f20;
+@mixin h3Mobile {
+ //styleName: h3-mobile;
+font:{
+ family: Georgia;
+ size: 2.5rem;
+ style: normal;
+ weight: 400;
+}
+line-height: 3.2rem;
+letter-spacing: 0.06em;
+text-align: center;
+}
+@mixin h3 {
+  font: {
+    family: Georgia;
+    weight: 400;
+    size: 3.5rem;
+    style: normal;
+  }
+  line-height: 130%;
+  letter-spacing: 0.21rem;
+}
+@mixin h4 {
+  font: {
+    family: Georgia;
+    style: normal;
+    weight: normal;
+    size: 2rem;
+  }
+  line-height: 128%;
+  letter-spacing: 0.3rem;
+  word-spacing: 0.3rem;
+  //color: $color-dark-xl;
+}
+@mixin paragraph-l {
+  font: {
+    family: Arial;
+    style: normal;
+    weight: normal;
+    size: 1.5rem;
+  }
+  line-height: 160%;
+  //color: $color-dark-xl;
+}
+@mixin logo_title {
+  font: {
+    family: Georgia;
+    style: normal;
+    weight: normal;
+    size: 3.2rem;
+  }
+  line-height: 110%;
+  letter-spacing: 0.2rem;
+  //color: $color-dark-xl;
+}
+@mixin logo_subtitle {
+  font: {
+    family: Arial;
+    style: normal;
+    weight: normal;
+    size: 1.3rem;
+  }
+  line-height: 110%;
+  letter-spacing: 0.13rem;
+  // color: $color-dark-xl;
+}
+@mixin pets-card-title {
+  font: {
+    family: Georgia;
+    size: 2rem;
+    style: normal;
+    weight: normal;
+  }
+  line-height: 107%;
+  letter-spacing: 0.11rem;
+  color: $color-dark-l;
+  text-decoration: none;
+}
+
+@mixin slider_button {
+  border: 2px solid $color-primary;
+  border-radius: 100%;
+
+  background: none;
+  height: 5.2rem;
+  width: 5.2rem;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+@mixin btnLearnMore {
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.7rem;
+  line-height: 130%;
+  letter-spacing: 0.1rem;
+  color: $color-dark-3xl;
+  //padding: 0px 10px;
+}
+:root {
+  font-size: 10px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+a,
+a:active,
+a:visited,
+a:link,
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+h1 {
+  display: none;
+}
+body {
+  width: 1280px;
+  margin: 0px auto;
+}
+
+.header {
+  //width: 100vw;
+  width: 128rem;
+  //height: 60px;
+  //position: absolute;
+  position: sticky;
+  top: 0px;
+  background-color: $color-light-xl;
+  //height: 12rem;
+}
+.wrapper {
+  display: flex;
+  margin: 0 auto;
+  //width: 128rem;
+  justify-content: space-between;
+  padding: 3rem 4rem 3rem 4rem;
+}
+.logo {
+  display: flex;
+  flex-direction: column;
+  &__title {
+    color: $color-dark-l;
+    @include logo_title;
+    line-height: 114%;
+  }
+  &__subtitle {
+    color: $color-dark-3xl;
+    margin-top: 1rem;
+    text-align: center;
+    @include logo_subtitle;
+  }
+}
+.menu {
+  display: flex;
+  width: 443px;
+}
+.burger{
+ display: none;
+}
+.list {
+  display: flex;
+  width: 100%;
+  list-style-type: none;
+  justify-content: space-between;
+  .list__item {
+    display: flex;
+    align-items: center;
+    .list__link {
+      color: $color-dark-l;
+      font-family: arial;
+      font-size: 1.5rem;
+      line-height: 160%;
+      font-weight: 400;
+
+      &_active {
+        border-bottom: solid 0.3rem $color-primary;
+        padding-bottom: 0.16rem;
+        color: $color-dark-3xl;
+      }
+      &_disabled {
+        color: $color-dark-l;
+        padding-bottom: 0.48rem;
+      }
+    }
+  }
+  .list__item :hover {
+    cursor: pointer;
+    color: $color-primary;
+  }
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  //width: 100vw;
+  width: 128rem;
+}
+
+.pets {
+  padding-top: 8rem;
+  padding-bottom: 10rem;
+  background-color: $color-light-l;
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__title {
+    max-width: 41rem;
+    text-align: center;
+
+    span {
+      display: block;
+    }
+    color: $color-dark-l;
+    @include h3;
+    letter-spacing: 0.21rem;
+  }
+  &__content {
+    display: flex;
+    align-items: center;
+    width: 120rem;
+    justify-content: space-between;
+    padding-top: 4.5rem;
+    flex-wrap: wrap;
+  }
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 27rem;
+    height: 43.5rem;
+    background: $color-light-s;
+    border-radius: 9px;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  &__cards > * {
+    margin-bottom: 3rem;
+  }
+  &__cards .pets-card-title {
+    @include pets-card-title;
+    text-align: center;
+  }
+  &__learnMore {
+    border: 2px solid $color-primary;
+    box-sizing: border-box;
+    border-radius: 100px;
+    width: 18.7rem;
+    height: 5.2rem;
+    @include btnLearnMore;
+  }
+  &__button {
+    margin-top: 6rem;
+    width: 26.1rem;
+    height: 5.2rem;
+    background-color: $color-primary;
+
+    border-radius: 100px;
+    border: none;
+    font-family: Georgia;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 130%;
+    letter-spacing: 0.06em;
+    color: $color-dark-3xl;
+  }
+  .pets_buttons {
+    display: flex;
+    flex-direction: row;
+    margin-top: 4.5rem;
+  }
+}
+.btnWrap :hover {
+ cursor: pointer;
+ background-color: $color-primary-light;
+ border: none $color-primary-light;
+}
+.slider-button {
+  @include slider_button;
+  @include h4;
+  text-align: center;
+}
+.active:hover, center:hover {
+ background-color: $color-primary-light;
+ cursor: pointer;
+ border: 3px solid $color-primary-light;
+}
+.left {
+  margin-right: 20px;
+}
+.center {
+  background-color: $color-primary;
+}
+.right {
+  margin-left: 20px;
+}
+.inactive {
+  color: $color-dark-s;
+  border: 2px solid $color-dark-s;
+}
+footer {
+  background: url(/assets/main/footer/noise_transparent@2x.png),
+    radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%),
+    #211f20;
+}
+.footerWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 4rem 4rem 0rem;
+}
+.QandS,
+.visit {
+  @include h3;
+  color: $color-light-xl;
+  margin-top: 1.7rem;
+  display: flex;
+  flex-direction: column;
+}
+.footer_HeaderMobile{
+ display: none;
+}
+.mail,
+.phone,
+.bostonMap,
+.LondonMap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.mail {
+  height: 3.2rem;
+  margin-top: 4.3rem;
+}
+.phone {
+  height: 3.2rem;
+  margin-top: 4rem;
+}
+
+.visit {
+  @include h3;
+  color: $color-light-xl;
+  display: flex;
+  flex-direction: column;
+  padding-right: 2.5rem;
+}
+.bostonMap {
+  margin-top: 3.5rem;
+}
+.LondonMap {
+  margin-top: 2.5rem;
+}
+.bostonMap .myLS,
+.LondonMap .myLS {
+  letter-spacing: 1px;
+}
+.footerTextLink{
+ align-self: baseline;
+}
+.footerText {
+  @include h4;
+  color: $color-primary;
+  margin-left: 2rem;
+  font-size: 1.8rem;
+  letter-spacing: 0.2rem;
+}
+
+@media screen and (max-width: 1280px) {
+  .wraper {
+    padding: 0 4rem;
+  }
+}
+@media screen and (max-width: 1279px){
+.header{
+ width: 76.8rem;
+}
+body {
+ width: 76.8rem;
+ //margin: 0px auto;
+}
+.main {
+ width: 76.8rem;
+}
+.pets__content{
+ width: 76.8rem;
+ padding-top: 1.5rem;
+ padding-left: 9.4rem;
+ padding-right: 9.4rem;
+}
+.pets__wrapper{
+ width: 76.8rem;
+}
+.wrapper{
+ padding: 3rem 3rem 3rem 3rem;
+}
+.Scarlett , .Freddie{
+ display: none;
+}
+.pets{
+ padding-bottom: 7.6rem;
+}
+.pets .pets_buttons{
+ margin-top: 2.5rem;
+}
+.footerWrapper{
+ margin-left: 3rem;
+    margin-right: 3rem;
+    flex-wrap: wrap;
+    justify-content: start;
+    margin-top: 1.4rem;
+
+}
+.QandS{
+ padding-left: 3.4rem;
+    padding-top: 0px;
+}
+.visit{
+ padding-left: 6.3rem;
+}
+.footerImage{
+ padding-left: 20.4rem;
+ padding-top: 5.7rem;
+}
+}
+@media screen and (max-width: 767px){
+ .header{
+  width: 32rem;
+ }
+ .list{
+  display: none;
+ }
+ body {
+  width: 32кem;
+  margin: 0px auto;
+ }
+ .main {
+  width: 32rem;
+ }
+ .menu{
+  width: auto;
+ }
+ .pets__content{
+  width: 32rem;
+  padding-top: 27px;
+    padding-left: 25px;
+ }
+ .pets__wrapper{
+  width: 32rem;
+
+ }
+ .wrapper{
+      padding: 3rem 5rem 3rem 1rem;
+ }
+ .Sophia, .Timmy, .Charly, .Scarlett , .Freddie{
+  display: none;
+ }
+ .pets{
+  padding-top: 42px;
+  padding-bottom: 42px;
+ }
+ .pets .pets_buttons{
+  width: 300px;
+  justify-content: space-between;
+  margin-top: 2.7rem;
+ }
+ .left {
+  margin-right: 0px;
+}
+
+.right {
+  margin-left: 0px;
+}
+ .footerWrapper{
+  margin: 30px 10px 0px 10px;
+
+ }
+ .QandS,
+.visit {
+ @include h3Mobile;
+ color: $color-light-xl;
+ padding-left: 0px;
+ margin: 0;
+ align-items: center;
+
+}
+.footerText > p{
+ letter-spacing: 1px;
+ word-spacing: 1px;
+}
+.visit{
+ padding-top: 37px;
+ align-items: baseline;
+}
+
+ .footerImage{
+  padding-top: 33px;
+  padding-left: 20px;
+ }
+ .bostonMap{
+  margin-top: 4.5rem;
+ }
+ .LondonMap {
+  margin-top: 3.5rem;
+}
+ .pets__title{
+  @include h3Mobile;
+  color: $color-dark-l;
+ }
+ .visit > .footer_HeaderMobile{
+  padding-left: 25px;
+ }
+ .footerImage > img{
+  width: 260px;
+  height: 269px;
+ }
+ .footer_Header{
+  display: none;
+ }
+ .footer_HeaderMobile{
+  display: inline;
+
+ }
+ .burger{
+  display: block;
+  padding-right: 3px;
+
+ }
+}
