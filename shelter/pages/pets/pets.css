@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   font-size: 10px;
 }
@@ -24,10 +25,14 @@ h1 {
 
 body {
   width: 1280px;
+  margin: 0px auto;
 }
 
 .header {
   width: 128rem;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
   background-color: #ffffff;
 }
 
@@ -80,6 +85,10 @@ body {
   display: -ms-flexbox;
   display: flex;
   width: 443px;
+}
+
+.burger {
+  display: none;
 }
 
 .list {
@@ -339,7 +348,7 @@ footer {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  margin: 4.1rem 4rem 0rem;
+  margin: 4rem 4rem 0rem;
 }
 
 .QandS,
@@ -351,7 +360,7 @@ footer {
   line-height: 130%;
   letter-spacing: 0.21rem;
   color: #ffffff;
-  margin-top: 1.6rem;
+  margin-top: 1.7rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -359,6 +368,10 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.footer_HeaderMobile {
+  display: none;
 }
 
 .mail,
@@ -378,7 +391,7 @@ footer {
 
 .mail {
   height: 3.2rem;
-  margin-top: 4.4rem;
+  margin-top: 4.3rem;
 }
 
 .phone {
@@ -401,7 +414,7 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-left: -0.7rem;
+  padding-right: 2.5rem;
 }
 
 .bostonMap {
@@ -432,6 +445,8 @@ footer {
   word-spacing: 0.3rem;
   color: #f1cdb3;
   margin-left: 2rem;
+  font-size: 1.8rem;
+  letter-spacing: 0.2rem;
 }
 
 @media screen and (max-width: 1280px) {
@@ -442,22 +457,22 @@ footer {
 
 @media screen and (max-width: 1279px) {
   .header {
-    width: 768px;
+    width: 76.8rem;
   }
   body {
-    width: 768px;
+    width: 76.8rem;
   }
   .main {
-    width: 768px;
+    width: 76.8rem;
   }
   .pets__content {
-    width: 768px;
+    width: 76.8rem;
     padding-top: 1.5rem;
-    padding-left: 94px;
-    padding-right: 94px;
+    padding-left: 9.4rem;
+    padding-right: 9.4rem;
   }
   .pets__wrapper {
-    width: 768px;
+    width: 76.8rem;
   }
   .wrapper {
     padding: 3rem 3rem 3rem 3rem;
@@ -466,31 +481,147 @@ footer {
     display: none;
   }
   .pets {
-    padding-bottom: 76px;
+    padding-bottom: 7.6rem;
   }
   .pets .pets_buttons {
     margin-top: 2.5rem;
   }
   .footerWrapper {
-    margin-left: 30px;
-    margin-right: 30px;
+    margin-left: 3rem;
+    margin-right: 3rem;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: start;
-    margin-top: 14px;
+    margin-top: 1.4rem;
   }
   .QandS {
-    padding-left: 34px;
+    padding-left: 3.4rem;
     padding-top: 0px;
   }
   .visit {
-    padding-left: 63px;
+    padding-left: 6.3rem;
   }
   .footerImage {
-    padding-left: 204px;
-    padding-top: 54px;
+    padding-left: 20.4rem;
+    padding-top: 5.7rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header {
+    width: 32rem;
+  }
+  .list {
+    display: none;
+  }
+  body {
+    width: 32кem;
+    margin: 0px auto;
+  }
+  .main {
+    width: 32rem;
+  }
+  .menu {
+    width: auto;
+  }
+  .pets__content {
+    width: 32rem;
+    padding-top: 27px;
+    padding-left: 25px;
+  }
+  .pets__wrapper {
+    width: 32rem;
+  }
+  .wrapper {
+    padding: 3rem 5rem 3rem 1rem;
+  }
+  .Sophia, .Timmy, .Charly, .Scarlett, .Freddie {
+    display: none;
+  }
+  .pets {
+    padding-top: 42px;
+    padding-bottom: 42px;
+  }
+  .pets .pets_buttons {
+    width: 300px;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin-top: 2.7rem;
+  }
+  .left {
+    margin-right: 0px;
+  }
+  .right {
+    margin-left: 0px;
+  }
+  .footerWrapper {
+    margin: 30px 10px 0px 10px;
+  }
+  .QandS,
+  .visit {
+    font-family: Georgia;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 3.2rem;
+    letter-spacing: 0.06em;
+    text-align: center;
+    color: #ffffff;
+    padding-left: 0px;
+    margin: 0;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .footerText > p {
+    letter-spacing: 1px;
+    word-spacing: 1px;
+  }
+  .visit {
+    padding-top: 37px;
+    -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
+  }
+  .footerImage {
+    padding-top: 33px;
+    padding-left: 20px;
+  }
+  .bostonMap {
+    margin-top: 4.5rem;
+  }
+  .LondonMap {
+    margin-top: 3.5rem;
+  }
+  .pets__title {
+    font-family: Georgia;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 3.2rem;
+    letter-spacing: 0.06em;
+    text-align: center;
+    color: #545454;
+  }
+  .visit > .footer_HeaderMobile {
+    padding-left: 25px;
+  }
+  .footerImage > img {
+    width: 260px;
+    height: 269px;
+  }
+  .footer_Header {
+    display: none;
+  }
+  .footer_HeaderMobile {
+    display: inline;
+  }
+  .burger {
+    display: block;
+    padding-right: 3px;
   }
 }
 /*# sourceMappingURL=pets.css.map */
