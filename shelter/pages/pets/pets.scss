@@ -282,16 +282,22 @@ body {
   // &__button :hover{
   //     cursor: pointer;
   // }
-  .btn-pets__button :hover {
-    background-color: $color-primary-light;
-    cursor: pointer;
-    border: 3px solid $color-primary-light;
-  }
+
+}
+.btnWrap :hover {
+ cursor: pointer;
+ background-color: $color-primary-light;
+ border: none $color-primary-light;
 }
 .slider-button {
   @include slider_button;
   @include h4;
   text-align: center;
+}
+.active:hover, center:hover {
+ background-color: $color-primary-light;
+ cursor: pointer;
+ border: 3px solid $color-primary-light;
 }
 .left {
   margin-right: 20px;
@@ -306,14 +312,10 @@ body {
   color: $color-dark-s;
   border: 2px solid $color-dark-s;
 }
-.btnWrap :hover {
-  cursor: pointer;
-  background-color: $color-primary-light;
-  border: none $color-primary-light;
-}
-.center_card {
-  margin: 0rem 3.7rem;
-}
+
+// .center_card {
+//   margin: 0rem 3.7rem;
+// }
 
 footer {
   background: url(/assets/main/footer/noise_transparent@2x.png),

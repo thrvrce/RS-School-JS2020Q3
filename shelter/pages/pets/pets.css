@@ -271,10 +271,10 @@ body {
   margin-top: 4.5rem;
 }
 
-.pets .btn-pets__button :hover {
-  background-color: #fddcc4;
+.btnWrap :hover {
   cursor: pointer;
-  border: 3px solid #fddcc4;
+  background-color: #fddcc4;
+  border: none #fddcc4;
 }
 
 .slider-button {
@@ -302,6 +302,12 @@ body {
   text-align: center;
 }
 
+.active:hover, center:hover {
+  background-color: #fddcc4;
+  cursor: pointer;
+  border: 3px solid #fddcc4;
+}
+
 .left {
   margin-right: 20px;
 }
@@ -317,16 +323,6 @@ body {
 .inactive {
   color: #cdcdcd;
   border: 2px solid #cdcdcd;
-}
-
-.btnWrap :hover {
-  cursor: pointer;
-  background-color: #fddcc4;
-  border: none #fddcc4;
-}
-
-.center_card {
-  margin: 0rem 3.7rem;
 }
 
 footer {
