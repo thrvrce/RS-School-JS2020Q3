@@ -9,7 +9,7 @@ $color-dark-2xl: #444444;
 $color-dark-3xl: #292929;
 $color-primary: #F1CDB3;
 $color-primary-light: #FDDCC4;
-$start-screen-gradient-background   :   url(/assets/noises_transparent@2x.png),
+$start-screen-gradient-background   :   url(../../assets/noises_transparent@2x.png),
                                         radial-gradient(100% 215.42% at 0% 0%,
                                         #5B483A 0%, #262425 100%), #211F20;
 $footer-gradient-background         :   url(noise_lines_transparent@2X.png),
@@ -159,7 +159,7 @@ h1{
 }
 body{
     width: 1280px;
-    //margin: 0px auto;
+    margin: 0px auto;
 }
 .wrapper{
     display: flex;

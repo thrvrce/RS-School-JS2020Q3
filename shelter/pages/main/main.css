@@ -24,6 +24,7 @@ h1 {
 
 body {
   width: 1280px;
+  margin: 0px auto;
 }
 
 .wrapper {
@@ -143,7 +144,7 @@ body {
   display: -ms-flexbox;
   display: flex;
   padding-top: 18rem;
-  background: url(/assets/noises_transparent@2x.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+  background: url(../../assets/noises_transparent@2x.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
 }
 
 .hero__content {
