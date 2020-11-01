@@ -39,8 +39,16 @@ const keyboard = {
 		if (keyToHighLight !== null){
 			keyToHighLight.classList.add ("keyboard_button_Used");
 			setTimeout( () => {keyToHighLight.classList.remove ("keyboard_button_Used")}, 50);
-
-
+			switch (key.toLowerCase()){
+				case "shift":
+					document.getElementById("shift").click();
+					break;
+				case "capslock":
+					document.getElementById("capslock").click();
+					break;
+				default:
+					break;
+			}
 		}
 //keyboard_button_Used
 	},
