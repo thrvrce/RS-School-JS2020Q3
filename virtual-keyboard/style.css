@@ -1,3 +1,6 @@
+textarea:focus{
+	outline: none;
+}
 .keyboard{
 	position: fixed;
 	left: 0px;

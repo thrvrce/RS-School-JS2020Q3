@@ -4,34 +4,37 @@ const keyboard = {
 		keyboard_buttons: null
 	},
 	properties:{
-		text: null,
+		textarea: null,
 		isCapsEnable: false,
 		isShiftEnable: false,
-		isEng: true
+		isEng: true,
+		caretPos: 0
 	},
 	keyboards:{
 		EngNoShift:["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "Backspace",
 							  "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]",
 								"Caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "\\", "Enter",
 								"Shift", "z", "x", "c", "v", "b", "n", "m", ",", ".", "/",
-								"Done","Space", "ENG"],
+								"Done","Space", "ENG", "arrow_back", "arrow_forward"],
 		EngShift:["~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "Backspace",
 							"q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "{", "}",
 							"Caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", ":", '"', "|", "Enter",
 							"Shift", "z", "x", "c", "v", "b", "n", "m", "<", ">", "?",
-							"Done", "Space", "ENG"],
+							"Done", "Space", "ENG", "arrow_back", "arrow_forward"],
 		RuNoShift:["ё", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "Backspace",
 							"й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х", "ъ",
 							"Caps",  "ф",  "ы",  "в",  "а",  "п",  "р",  "о",  "л",  "д",  "ж",  "э",  "\\",  "Enter",
 							"Shift", "я", "ч", "с", "м", "и", "т", "ь", "б", "ю", ".",
-							"Done", "Space", "РУС"],
+							"Done", "Space", "РУС", "arrow_back", "arrow_forward"],
 		RuShift:["ё", "!", '"', "№", ";", "%", ":", "?", "*", "(", ")", "_", "+", "Backspace",
 						 "й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х", "ъ",
 						 "Caps",  "ф",  "ы",  "в",  "а",  "п",  "р",  "о",  "л",  "д",  "ж",  "э",  "/",  "Enter",
 						 "Shift", "я", "ч", "с", "м", "и", "т", "ь", "б", "ю", ",",
-						 "Done", "Space", "РУС"]
+						 "Done", "Space", "РУС", "arrow_back", "arrow_forward"]
 	},
 	init(){
+		this.properties.textarea = document.querySelector("textarea");
+
 		//create elements
 		this.DOM_Elements.keyboard = document.createElement("div");
 		this.DOM_Elements.keyboard_buttons = document.createElement("div");
@@ -54,7 +57,44 @@ const keyboard = {
 			document.querySelector(".keyboard_button_Shift").classList.toggle("keyboard_button_Shift", this.properties.isShiftEnable);
 		}
 	},
+	_setCaret(pos_base, pos_shift){
+		this.properties.textarea.selectionStart = pos_base + pos_shift;
+		this.properties.textarea.selectionEnd = this.properties.textarea.selectionStart;
+		this.properties.textarea.focus();
+	},
+	_onInput (key){
+		let tmpArr = this.properties.textarea.value.split("");
+		console.log(tmpArr);
 
+		let	selectionStart = this.properties.textarea.selectionStart;
+		let	selectionEnd = this.properties.textarea.selectionEnd;
+		let numOfDeletedElems = Math.abs( selectionStart -  selectionEnd );
+		let caret_shift= 0;
+		console.log(`Start ${selectionStart}; End ${selectionEnd}; toDel: ${numOfDeletedElems}`);
+		 if (key === "Backspace"){
+			if (numOfDeletedElems === 0){
+				tmpArr.splice(selectionStart - 1, 1, "");
+				caret_shift = -1;
+			}
+			else{
+				tmpArr.splice(selectionStart, numOfDeletedElems, "");
+			}
+		 }
+		 else{
+			tmpArr.splice(selectionStart, numOfDeletedElems, key);
+			caret_shift = 1;
+		 }
+
+		console.log(tmpArr);
+
+		this.properties.textarea.value = tmpArr.join("");
+		console.log(this.properties.textarea.value);
+
+		// this.properties.textarea.selectionStart =  selectionStart + 1;
+		// this.properties.textarea.selectionEnd = this.properties.textarea.selectionStart;
+		// this.properties.textarea.focus();
+		this._setCaret(selectionStart, caret_shift);
+	},
 	setKeys(){
 		const fragment = document.createDocumentFragment();
 		let keyLayOut = ((this.properties.isEng) ? "Eng" : "Ru") + ((this.properties.isShiftEnable) ? "" : "No") + "Shift";
@@ -84,6 +124,7 @@ const keyboard = {
 					DOM_key.innerHTML = creatrIcon("backspace");
 
 					DOM_key.addEventListener("click", () => {
+						this._onInput(key);
 						this._resetShift();
 					});
 					break;
@@ -103,6 +144,7 @@ const keyboard = {
 					DOM_key.innerHTML = creatrIcon("keyboard_return");
 
 					DOM_key.addEventListener("click", () => {
+						this._onInput("\n");
 						this._resetShift();
 					});
 					break;
@@ -141,15 +183,44 @@ const keyboard = {
 					DOM_key.innerHTML = creatrIcon("space_bar");
 
 					DOM_key.addEventListener("click", () => {
+						this._onInput(" ");
 						this._resetShift();
 					});
+					break;
+				case "arrow_back":
+					DOM_key.classList.add("keyboard_button-wide", "keyboard_button-dark")	;
+					DOM_key.innerHTML = creatrIcon("arrow_back");
+
+					DOM_key.addEventListener("click", () => {
+						this._resetShift();
+
+					});
+					break;
+				case "arrow_forward":
+					DOM_key.classList.add("keyboard_button-wide", "keyboard_button-dark")	;
+					DOM_key.innerHTML = creatrIcon("arrow_forward");
+
+					DOM_key.addEventListener("click", () => {
+						this._resetShift();
+
+					});
+
 					break;
 				default:
 					DOM_key.textContent = (this.properties.isCapsEnable || this.properties.isShiftEnable) ? key.toUpperCase() : key.toLowerCase();
 
-					DOM_key.addEventListener("click", () => {
+					DOM_key.addEventListener("click", (e) => {
+						if (document.activeElement === this.properties.textarea.value)
+						{
+							console.log("asd")
+							DOM_key.preventDefault();
+						}
+
+
+						this._onInput(key);
 						this._resetShift();
 					});
+
 					break;
 			}
 
