@@ -81,7 +81,7 @@ const keyboard = {
 			}
 		 }
 		 else{
-			tmpArr.splice(selectionStart, numOfDeletedElems, key);
+			tmpArr.splice(selectionStart, numOfDeletedElems, (this.properties.isShiftEnable || this.properties.isCapsEnable) ? key.toUpperCase() : key.toLowerCase() );
 			caret_shift = 1;
 		 }
 
