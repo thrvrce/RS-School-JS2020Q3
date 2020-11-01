@@ -15,24 +15,34 @@ const keyboard = {
 	keyboards:{
 		EngNoShift:["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "Backspace",
 							  "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "Enter",
-								"Caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "\\",
+								"CapsLock", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "\\",
 								"Shift", "z", "x", "c", "v", "b", "n", "m", ",", ".", "/",
-								"Done","Hearing", "Space", "ENG", "arrow_back", "arrow_forward"],
+								"Done","Hearing", "Space", "ENG", "ArrowLeft", "ArrowRight"],
 		EngShift:["~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "Backspace",
 							"q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "{", "}", "Enter",
-							"Caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", ":", '"', "|",
+							"CapsLock", "a", "s", "d", "f", "g", "h", "j", "k", "l", ":", '"', "|",
 							"Shift", "z", "x", "c", "v", "b", "n", "m", "<", ">", "?",
-							"Done", "Hearing", "Space", "ENG", "arrow_back", "arrow_forward"],
+							"Done", "Hearing", "Space", "ENG", "ArrowLeft", "ArrowRight"],
 		RuNoShift:["ё", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "Backspace",
 							"й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х", "ъ","Enter",
-							"Caps",  "ф",  "ы",  "в",  "а",  "п",  "р",  "о",  "л",  "д",  "ж",  "э",  "\\",
+							"CapsLock",  "ф",  "ы",  "в",  "а",  "п",  "р",  "о",  "л",  "д",  "ж",  "э",  "\\",
 							"Shift", "я", "ч", "с", "м", "и", "т", "ь", "б", "ю", ".",
-							"Done", "Hearing", "Space", "РУС", "arrow_back", "arrow_forward"],
+							"Done", "Hearing", "Space", "РУС", "ArrowLeft", "ArrowRight"],
 		RuShift:["ё", "!", '"', "№", ";", "%", ":", "?", "*", "(", ")", "_", "+", "Backspace",
 						 "й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х", "ъ","Enter",
-						 "Caps",  "ф",  "ы",  "в",  "а",  "п",  "р",  "о",  "л",  "д",  "ж",  "э",  "/",
+						 "CapsLock",  "ф",  "ы",  "в",  "а",  "п",  "р",  "о",  "л",  "д",  "ж",  "э",  "/",
 						 "Shift", "я", "ч", "с", "м", "и", "т", "ь", "б", "ю", ",",
-						 "Done", "Hearing", "Space", "РУС", "arrow_back", "arrow_forward"]
+						 "Done", "Hearing", "Space", "РУС", "ArrowLeft", "ArrowRight"]
+	},
+	_keyHighLight(key){
+		let keyToHighLight = document.getElementById( (key !== " " ) ? key.toLowerCase() : "space");
+		if (keyToHighLight !== null){
+			keyToHighLight.classList.add ("keyboard_button_Used");
+			setTimeout( () => {keyToHighLight.classList.remove ("keyboard_button_Used")}, 50);
+
+
+		}
+//keyboard_button_Used
 	},
 	init(){
 		this.properties.textarea = document.querySelector("textarea");
@@ -40,6 +50,11 @@ const keyboard = {
 			if (!this.properties.isOpen){
 				this.open();
 			}
+		});
+		this.properties.textarea.addEventListener ("keyup", (e) => {
+
+			console.log(`event ^ ${e.type} ; innertext: ${e.target.innerText}  ; key: ${e.key}`)
+			this._keyHighLight(e.key);
 		});
 
 		//create elements
@@ -89,9 +104,9 @@ const keyboard = {
 				tmpArr.splice(selectionStart, numOfDeletedElems, "");
 			}
 		 }
-		 else if (key === "arrow_back" || key === "arrow_forward"){
-			if ( (selectionStart !== 0 && key === "arrow_back") || key === "arrow_forward"){
-				caret_shift = (key === "arrow_back") ? -1 : 1;
+		 else if (key === "ArrowLeft" || key === "ArrowRight"){
+			if ( (selectionStart !== 0 && key === "ArrowLeft") || key === "ArrowRight"){
+				caret_shift = (key === "ArrowLeft") ? -1 : 1;
 			}
 		 }
 		 else{
@@ -142,7 +157,7 @@ const keyboard = {
 						//this._resetShift();
 					});
 					break;
-				case "Caps":
+				case "CapsLock":
 					DOM_key.classList.add("keyboard_button-wide", "keyboard_button-activatable" );
 					DOM_key.classList.toggle("keyboard_button-active", this.properties.isCapsEnable);
 					DOM_key.innerHTML = creatrIcon("keyboard_capslock");
@@ -223,24 +238,24 @@ const keyboard = {
 						//this._resetShift();
 					});
 					break;
-				case "arrow_back":
+				case "ArrowLeft":
 					DOM_key.classList.add("keyboard_button-wide", "keyboard_button-dark")	;
 					DOM_key.innerHTML = creatrIcon("arrow_back");
 
 					DOM_key.addEventListener("click", () => {
 						this._speech("стрелка влево"); //speechSynthesis.speak(new SpeechSynthesisUtterance(`стрелка влево` ) );
-						this._onInput("arrow_back");
+						this._onInput("ArrowLeft");
 						//this._resetShift();
 
 					});
 					break;
-				case "arrow_forward":
+				case "ArrowRight":
 					DOM_key.classList.add("keyboard_button-wide", "keyboard_button-dark")	;
 					DOM_key.innerHTML = creatrIcon("arrow_forward");
 
 					DOM_key.addEventListener("click", () => {
 						this._speech("стрелка вправо");// speechSynthesis.speak(new SpeechSynthesisUtterance(`стрелка вправо` ) );
-						this._onInput("arrow_forward");
+						this._onInput("ArrowRight");
 						//this._resetShift();
 
 					});
@@ -262,7 +277,7 @@ const keyboard = {
 
 					break;
 			}
-
+			DOM_key.id = key.toLowerCase();
 			fragment.appendChild(DOM_key);
 
 			if (isNedInsertLineBreak)

@@ -92,6 +92,10 @@ textarea:focus{
 	color: black;
 }
 
+.keyboard_button_Used{
+	background: rgba(255, 255, 255, 0.1);
+}
+
 @media screen and (max-width : 800px) {
 	.keyboard_button{
 		width: 5%;
