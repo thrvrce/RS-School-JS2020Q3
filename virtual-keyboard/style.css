@@ -1,6 +1,18 @@
 textarea:focus{
 	outline: none;
 }
+
+/* .launchKeyboard{
+	position: fixed;
+	left: 0px;
+	bottom: 0px;
+	background: #004134;
+	transition: bottom 1.5s;
+	padding: 0;
+	 box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+	width: 36px;
+} */
+
 .keyboard{
 	position: fixed;
 	left: 0px;

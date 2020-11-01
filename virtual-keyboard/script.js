@@ -8,7 +8,8 @@ const keyboard = {
 		isCapsEnable: false,
 		isShiftEnable: false,
 		isEng: true,
-		caretPos: 0
+		caretPos: 0,
+		isOpen: false
 	},
 	keyboards:{
 		EngNoShift:["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "Backspace",
@@ -34,13 +35,18 @@ const keyboard = {
 	},
 	init(){
 		this.properties.textarea = document.querySelector("textarea");
+		this.properties.textarea.addEventListener ("focus", () => {
+			if (!this.properties.isOpen){
+				this.open();
+			}
+		});
 
 		//create elements
 		this.DOM_Elements.keyboard = document.createElement("div");
 		this.DOM_Elements.keyboard_buttons = document.createElement("div");
 
 		//add classes
-		this.DOM_Elements.keyboard.classList.add("keyboard", "1keyboard-hidden");
+		this.DOM_Elements.keyboard.classList.add("keyboard", "keyboard-hidden");
 		this.DOM_Elements.keyboard_buttons.classList.add("keyboard_buttons");
 
 		this.setKeys();
@@ -178,6 +184,7 @@ const keyboard = {
 					DOM_key.innerHTML = creatrIcon("check_circle");
 
 					DOM_key.addEventListener("click", () => {
+						this.close();
 						//this._resetShift();
 
 					});
@@ -248,6 +255,14 @@ const keyboard = {
 		while(keyboard_buttons.firstChild){
 			keyboard_buttons.removeChild(keyboard_buttons.firstChild);
 		}
+	},
+	open(){
+		this.DOM_Elements.keyboard.classList.remove("keyboard-hidden");
+		this.properties.isOpen = true;
+	},
+	close(){
+		this.DOM_Elements.keyboard.classList.add("keyboard-hidden");
+		this.properties.isOpen = false;
 	}
 }
 
@@ -256,6 +271,7 @@ const keyboard = {
 // 	console.log(`S:${textarea.selectionStart}    E:${textarea.selectionEnd}`);
 // };
 keyboard.init();
+
 
 // keyboard.properties.isCapsEnable = true;
 // keyboard.properties.isShiftEnable = true;
