@@ -14,23 +14,23 @@ const keyboard = {
 	},
 	keyboards:{
 		EngNoShift:["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "Backspace",
-							  "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]",
-								"Caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "\\", "Enter",
+							  "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]", "Enter",
+								"Caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "\\",
 								"Shift", "z", "x", "c", "v", "b", "n", "m", ",", ".", "/",
 								"Done","Hearing", "Space", "ENG", "arrow_back", "arrow_forward"],
 		EngShift:["~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "Backspace",
-							"q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "{", "}",
-							"Caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", ":", '"', "|", "Enter",
+							"q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "{", "}", "Enter",
+							"Caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", ":", '"', "|",
 							"Shift", "z", "x", "c", "v", "b", "n", "m", "<", ">", "?",
 							"Done", "Hearing", "Space", "ENG", "arrow_back", "arrow_forward"],
 		RuNoShift:["ё", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "Backspace",
-							"й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х", "ъ",
-							"Caps",  "ф",  "ы",  "в",  "а",  "п",  "р",  "о",  "л",  "д",  "ж",  "э",  "\\",  "Enter",
+							"й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х", "ъ","Enter",
+							"Caps",  "ф",  "ы",  "в",  "а",  "п",  "р",  "о",  "л",  "д",  "ж",  "э",  "\\",
 							"Shift", "я", "ч", "с", "м", "и", "т", "ь", "б", "ю", ".",
 							"Done", "Hearing", "Space", "РУС", "arrow_back", "arrow_forward"],
 		RuShift:["ё", "!", '"', "№", ";", "%", ":", "?", "*", "(", ")", "_", "+", "Backspace",
-						 "й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х", "ъ",
-						 "Caps",  "ф",  "ы",  "в",  "а",  "п",  "р",  "о",  "л",  "д",  "ж",  "э",  "/",  "Enter",
+						 "й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х", "ъ","Enter",
+						 "Caps",  "ф",  "ы",  "в",  "а",  "п",  "р",  "о",  "л",  "д",  "ж",  "э",  "/",
 						 "Shift", "я", "ч", "с", "м", "и", "т", "ь", "б", "ю", ",",
 						 "Done", "Hearing", "Space", "РУС", "arrow_back", "arrow_forward"]
 	},
@@ -121,10 +121,12 @@ const keyboard = {
 			const DOM_key = document.createElement("button");
 			let isNedInsertLineBreak = false;
 			if (this.properties.isEng){
-				isNedInsertLineBreak = ["Backspace", "]", "}", "Enter", "/", "?"].indexOf(key) !== -1;
+				//isNedInsertLineBreak = ["Backspace", "]", "}", "Enter", "/", "?"].indexOf(key) !== -1;
+				isNedInsertLineBreak = ["Backspace", "\\","|",  "Enter", "/", "?"].indexOf(key) !== -1;
 			}
 			else {
-				isNedInsertLineBreak = ["Backspace", "ъ", "Ъ", "Enter", ".", ","].indexOf(key) !== -1;
+				//isNedInsertLineBreak = ["Backspace", "ъ", "Ъ", "Enter", ".", ","].indexOf(key) !== -1;
+				isNedInsertLineBreak = ["Backspace", "\\", "/", "Enter", ".", ","].indexOf(key) !== -1;
 			}
 
 			DOM_key.setAttribute("type", "button");
@@ -195,6 +197,7 @@ const keyboard = {
 					});
 					break;
 					case "Hearing":
+						DOM_key.classList.add("keyboard_button-wide")	;
 						DOM_key.classList.toggle("keyboard_button_Shift", this.properties.isUseSpeech);
 						DOM_key.innerHTML = creatrIcon("hearing");
 

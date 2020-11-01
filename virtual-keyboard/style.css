@@ -70,7 +70,7 @@ textarea:focus{
 
 .keyboard_button-activatable::after{
 	content: "";
-	top: 10px;
+	top: 5px;
 	right: 10px;
 	position: absolute;
 	height: 8px;
@@ -92,3 +92,17 @@ textarea:focus{
 	color: black;
 }
 
+@media screen and (max-width : 800px) {
+	.keyboard_button{
+		width: 5%;
+	}
+	.keyboard_button-wide{
+		width: 8%;
+		font-size: 11px;
+	}
+	.keyboard_button-extra-wide{
+		width: 26%;
+	}
+
+
+}
