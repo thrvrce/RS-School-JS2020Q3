@@ -9,29 +9,30 @@ const keyboard = {
 		isShiftEnable: false,
 		isEng: true,
 		caretPos: 0,
-		isOpen: false
+		isOpen: false,
+		isUseSpeech: false
 	},
 	keyboards:{
 		EngNoShift:["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "Backspace",
 							  "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]",
 								"Caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "\\", "Enter",
 								"Shift", "z", "x", "c", "v", "b", "n", "m", ",", ".", "/",
-								"Done","Space", "ENG", "arrow_back", "arrow_forward"],
+								"Done","Hearing", "Space", "ENG", "arrow_back", "arrow_forward"],
 		EngShift:["~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "Backspace",
 							"q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "{", "}",
 							"Caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", ":", '"', "|", "Enter",
 							"Shift", "z", "x", "c", "v", "b", "n", "m", "<", ">", "?",
-							"Done", "Space", "ENG", "arrow_back", "arrow_forward"],
+							"Done", "Hearing", "Space", "ENG", "arrow_back", "arrow_forward"],
 		RuNoShift:["ё", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "Backspace",
 							"й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х", "ъ",
 							"Caps",  "ф",  "ы",  "в",  "а",  "п",  "р",  "о",  "л",  "д",  "ж",  "э",  "\\",  "Enter",
 							"Shift", "я", "ч", "с", "м", "и", "т", "ь", "б", "ю", ".",
-							"Done", "Space", "РУС", "arrow_back", "arrow_forward"],
+							"Done", "Hearing", "Space", "РУС", "arrow_back", "arrow_forward"],
 		RuShift:["ё", "!", '"', "№", ";", "%", ":", "?", "*", "(", ")", "_", "+", "Backspace",
 						 "й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х", "ъ",
 						 "Caps",  "ф",  "ы",  "в",  "а",  "п",  "р",  "о",  "л",  "д",  "ж",  "э",  "/",  "Enter",
 						 "Shift", "я", "ч", "с", "м", "и", "т", "ь", "б", "ю", ",",
-						 "Done", "Space", "РУС", "arrow_back", "arrow_forward"]
+						 "Done", "Hearing", "Space", "РУС", "arrow_back", "arrow_forward"]
 	},
 	init(){
 		this.properties.textarea = document.querySelector("textarea");
@@ -134,6 +135,7 @@ const keyboard = {
 					DOM_key.innerHTML = creatrIcon("backspace");
 
 					DOM_key.addEventListener("click", () => {
+						this._speech(key);//speechSynthesis.speak(new SpeechSynthesisUtterance(key));
 						this._onInput(key);
 						//this._resetShift();
 					});
@@ -145,6 +147,7 @@ const keyboard = {
 
 					DOM_key.addEventListener("click", () => {
 						this.properties.isCapsEnable = !this.properties.isCapsEnable;
+						this._speech(`Caps Lock ${ ( this.properties.isCapsEnable ? "включен" : "отключен") }`);//speechSynthesis.speak(new SpeechSynthesisUtterance(`Caps Lock ${ ( this.properties.isCapsEnable ? "включен" : "отключен") }` ) );
 						//this._resetShift();
 						this._reDrawKeyboard();
 					});
@@ -154,6 +157,7 @@ const keyboard = {
 					DOM_key.innerHTML = creatrIcon("keyboard_return");
 
 					DOM_key.addEventListener("click", () => {
+						this._speech("Enter");//speechSynthesis.speak(new SpeechSynthesisUtterance("Enter") );
 						this._onInput("\n");
 						//this._resetShift();
 					});
@@ -165,6 +169,7 @@ const keyboard = {
 
 					DOM_key.addEventListener("click", () => {
 						this.properties.isShiftEnable = !this.properties.isShiftEnable;
+						this._speech(`Shift ${ ( this.properties.isShiftEnable ? "включен" : "отключен") }`); //speechSynthesis.speak(new SpeechSynthesisUtterance(`Shift ${ ( this.properties.isShiftEnable ? "включен" : "отключен") }` ) );
 						this._reDrawKeyboard();
 					});
 					break;
@@ -175,6 +180,7 @@ const keyboard = {
 
 					DOM_key.addEventListener("click", () => {
 						this.properties.isEng = !this.properties.isEng;
+						this._speech(`Выбрана ${ ( this.properties.isEng ? "английская" : "русская") } раскладка`);//speechSynthesis.speak(new SpeechSynthesisUtterance(`Выбрана ${ ( this.properties.isEng ? "английская" : "русская") } раскладка` ) );
 						//this._resetShift();
 						this._reDrawKeyboard();
 					});
@@ -186,14 +192,30 @@ const keyboard = {
 					DOM_key.addEventListener("click", () => {
 						this.close();
 						//this._resetShift();
-
 					});
 					break;
+					case "Hearing":
+						DOM_key.classList.toggle("keyboard_button_Shift", this.properties.isUseSpeech);
+						DOM_key.innerHTML = creatrIcon("hearing");
+
+						DOM_key.addEventListener("click", () => {
+							this.properties.isUseSpeech = !this.properties.isUseSpeech;
+							this._reDrawKeyboard();
+							if (this.properties.isUseSpeech){
+								this._speech("Включено озвучивание ввода");
+							}
+							else{
+								speechSynthesis.speak(new SpeechSynthesisUtterance("Отключено озвучивание ввода"));
+							}
+
+						});
+						break;
 				case "Space":
 					DOM_key.classList.add("keyboard_button-extra-wide")	;
 					DOM_key.innerHTML = creatrIcon("space_bar");
 
 					DOM_key.addEventListener("click", () => {
+						this._speech("пробел");//speechSynthesis.speak(new SpeechSynthesisUtterance(`пробел` ) );
 						this._onInput(" ");
 						//this._resetShift();
 					});
@@ -203,6 +225,7 @@ const keyboard = {
 					DOM_key.innerHTML = creatrIcon("arrow_back");
 
 					DOM_key.addEventListener("click", () => {
+						this._speech("стрелка влево"); //speechSynthesis.speak(new SpeechSynthesisUtterance(`стрелка влево` ) );
 						this._onInput("arrow_back");
 						//this._resetShift();
 
@@ -213,6 +236,7 @@ const keyboard = {
 					DOM_key.innerHTML = creatrIcon("arrow_forward");
 
 					DOM_key.addEventListener("click", () => {
+						this._speech("стрелка вправо");// speechSynthesis.speak(new SpeechSynthesisUtterance(`стрелка вправо` ) );
 						this._onInput("arrow_forward");
 						//this._resetShift();
 
@@ -223,13 +247,12 @@ const keyboard = {
 					DOM_key.textContent = (this.properties.isCapsEnable || this.properties.isShiftEnable) ? key.toUpperCase() : key.toLowerCase();
 
 					DOM_key.addEventListener("click", (e) => {
-						if (document.activeElement === this.properties.textarea.value)
-						{
-							console.log("asd")
-							DOM_key.preventDefault();
-						}
-
-
+						// if (document.activeElement === this.properties.textarea.value)
+						// {
+						// 	console.log("asd")
+						// 	DOM_key.preventDefault();
+						// }
+						this._speech(key);
 						this._onInput(key);
 						//this._resetShift();
 					});
@@ -250,6 +273,77 @@ const keyboard = {
 		document.body.appendChild(this.DOM_Elements.keyboard);
 
 	},
+	_speech(strForSpeak){
+		if (this.properties.isUseSpeech){
+			switch (strForSpeak){
+				case "!":
+					strForSpeak = "Восклицательный знак";
+					break;
+					case "%":
+						strForSpeak = "Процент";
+						break;
+					case "(":
+					strForSpeak = "открывающая скобка";
+					break;
+					case ")":
+						strForSpeak = "закрывающая скобка";
+						break;
+					case "{":
+						strForSpeak = "открывающая фигурная скобка";
+						break;
+					case "}":
+						strForSpeak = "закрывающая фигурная скобка";
+						break;
+					case ":":
+						strForSpeak = "двоеточие";
+						break;
+					case '"':
+						strForSpeak = "двойные кавычки";
+						break;
+					case '|':
+						strForSpeak = "вертикальная черта";
+						break;
+					case "<":
+						strForSpeak = "меньше чем";
+						break;
+					case '>':
+						strForSpeak = "больше чем";
+						break;
+					case '?':
+						strForSpeak = "вопрос";
+						break;
+					case "-":
+						strForSpeak = "минус";
+						break;
+					case "[":
+						strForSpeak = "открывающая квадратная скобка";
+						break;
+					case ']':
+						strForSpeak = "закрывающая квадратная скобка";
+						break;
+					case ';':
+						strForSpeak = "точка с запятойй";
+						break;
+					case "'":
+						strForSpeak = "одинарные кавычки";
+						break;
+					case ',':
+						strForSpeak = "запятая";
+						break;
+					case '.':
+						strForSpeak = "точка";
+						break;
+					case '`':
+					strForSpeak = "обратные кавычки";
+					break;
+				default:
+
+					break;
+			}
+			speechSynthesis.speak(new SpeechSynthesisUtterance(strForSpeak));
+		}
+	}
+	,
 	_resetKeys(){
 		let keyboard_buttons = document.querySelector(".keyboard_buttons");
 		while(keyboard_buttons.firstChild){
@@ -259,10 +353,12 @@ const keyboard = {
 	open(){
 		this.DOM_Elements.keyboard.classList.remove("keyboard-hidden");
 		this.properties.isOpen = true;
+		this._speech("Клавиатура открыта")//speechSynthesis.speak(new SpeechSynthesisUtterance(`Клавиатура открыта` ) );
 	},
 	close(){
 		this.DOM_Elements.keyboard.classList.add("keyboard-hidden");
 		this.properties.isOpen = false;
+		this._speech("Клавиатура закрыта")//speechSynthesis.speak(new SpeechSynthesisUtterance(`Клавиатура закрыта` ) );
 	}
 }
 
