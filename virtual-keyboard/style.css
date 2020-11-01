@@ -3,10 +3,10 @@
 	left: 0px;
 	bottom: 0px;
 	background: #004134;
-	width: 100vh;
+	width: 100vw;
 	user-select: none;
 	transition: bottom 0.5s;
-	height: 100px;
+	/* height: 100px; */
 	padding: 5px;
 	box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
 }
@@ -72,4 +72,8 @@
 	background: rgba(0, 0, 0, 0.2);
 }
 
+.keyboard_button_Shift{
+	background: rgba(255, 255, 255, 0.9);
+	color: black;
+}
 
