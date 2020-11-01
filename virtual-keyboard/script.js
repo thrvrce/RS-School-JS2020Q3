@@ -73,8 +73,10 @@ const keyboard = {
 		console.log(`Start ${selectionStart}; End ${selectionEnd}; toDel: ${numOfDeletedElems}`);
 		 if (key === "Backspace"){
 			if (numOfDeletedElems === 0){
-				tmpArr.splice(selectionStart - 1, 1, "");
-				caret_shift = -1;
+				if (selectionStart !== 0){
+					tmpArr.splice(selectionStart - 1, 1, "");
+					caret_shift = -1;
+				}
 			}
 			else{
 				tmpArr.splice(selectionStart, numOfDeletedElems, "");
