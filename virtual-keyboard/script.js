@@ -125,7 +125,7 @@ const keyboard = {
 
 					DOM_key.addEventListener("click", () => {
 						this._onInput(key);
-						this._resetShift();
+						//this._resetShift();
 					});
 					break;
 				case "Caps":
@@ -135,7 +135,7 @@ const keyboard = {
 
 					DOM_key.addEventListener("click", () => {
 						this.properties.isCapsEnable = !this.properties.isCapsEnable;
-						this._resetShift();
+						//this._resetShift();
 						this._reDrawKeyboard();
 					});
 					break;
@@ -145,7 +145,7 @@ const keyboard = {
 
 					DOM_key.addEventListener("click", () => {
 						this._onInput("\n");
-						this._resetShift();
+						//this._resetShift();
 					});
 					break;
 				case "Shift":
@@ -165,7 +165,7 @@ const keyboard = {
 
 					DOM_key.addEventListener("click", () => {
 						this.properties.isEng = !this.properties.isEng;
-						this._resetShift();
+						//this._resetShift();
 						this._reDrawKeyboard();
 					});
 					break;
@@ -174,7 +174,7 @@ const keyboard = {
 					DOM_key.innerHTML = creatrIcon("check_circle");
 
 					DOM_key.addEventListener("click", () => {
-						this._resetShift();
+						//this._resetShift();
 
 					});
 					break;
@@ -184,7 +184,7 @@ const keyboard = {
 
 					DOM_key.addEventListener("click", () => {
 						this._onInput(" ");
-						this._resetShift();
+						//this._resetShift();
 					});
 					break;
 				case "arrow_back":
@@ -192,7 +192,7 @@ const keyboard = {
 					DOM_key.innerHTML = creatrIcon("arrow_back");
 
 					DOM_key.addEventListener("click", () => {
-						this._resetShift();
+						//this._resetShift();
 
 					});
 					break;
@@ -201,7 +201,7 @@ const keyboard = {
 					DOM_key.innerHTML = creatrIcon("arrow_forward");
 
 					DOM_key.addEventListener("click", () => {
-						this._resetShift();
+						//this._resetShift();
 
 					});
 
@@ -218,7 +218,7 @@ const keyboard = {
 
 
 						this._onInput(key);
-						this._resetShift();
+						//this._resetShift();
 					});
 
 					break;
