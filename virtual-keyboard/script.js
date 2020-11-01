@@ -80,6 +80,11 @@ const keyboard = {
 				tmpArr.splice(selectionStart, numOfDeletedElems, "");
 			}
 		 }
+		 else if (key === "arrow_back" || key === "arrow_forward"){
+			if ( (selectionStart !== 0 && key === "arrow_back") || key === "arrow_forward"){
+				caret_shift = (key === "arrow_back") ? -1 : 1;
+			}
+		 }
 		 else{
 			tmpArr.splice(selectionStart, numOfDeletedElems, (this.properties.isShiftEnable || this.properties.isCapsEnable) ? key.toUpperCase() : key.toLowerCase() );
 			caret_shift = 1;
@@ -90,9 +95,6 @@ const keyboard = {
 		this.properties.textarea.value = tmpArr.join("");
 		console.log(this.properties.textarea.value);
 
-		// this.properties.textarea.selectionStart =  selectionStart + 1;
-		// this.properties.textarea.selectionEnd = this.properties.textarea.selectionStart;
-		// this.properties.textarea.focus();
 		this._setCaret(selectionStart, caret_shift);
 	},
 	setKeys(){
@@ -192,6 +194,7 @@ const keyboard = {
 					DOM_key.innerHTML = creatrIcon("arrow_back");
 
 					DOM_key.addEventListener("click", () => {
+						this._onInput("arrow_back");
 						//this._resetShift();
 
 					});
@@ -201,6 +204,7 @@ const keyboard = {
 					DOM_key.innerHTML = creatrIcon("arrow_forward");
 
 					DOM_key.addEventListener("click", () => {
+						this._onInput("arrow_forward");
 						//this._resetShift();
 
 					});
