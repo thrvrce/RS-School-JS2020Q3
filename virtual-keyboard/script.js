@@ -110,7 +110,8 @@ const keyboard = {
 			}
 		 }
 		 else{
-			tmpArr.splice(selectionStart, numOfDeletedElems, (this.properties.isShiftEnable || this.properties.isCapsEnable) ? key.toUpperCase() : key.toLowerCase() );
+			//tmpArr.splice(selectionStart, numOfDeletedElems, (this.properties.isShiftEnable || this.properties.isCapsEnable) ? key.toUpperCase() : key.toLowerCase() );!(this.properties.isCapsEnable && this.properties.isShiftEnable)
+			tmpArr.splice(selectionStart, numOfDeletedElems, (!(this.properties.isCapsEnable && this.properties.isShiftEnable) && (this.properties.isShiftEnable || this.properties.isCapsEnable)) ? key.toUpperCase() : key.toLowerCase() );
 			caret_shift = 1;
 		 }
 
@@ -262,7 +263,8 @@ const keyboard = {
 
 					break;
 				default:
-					DOM_key.textContent = (this.properties.isCapsEnable || this.properties.isShiftEnable) ? key.toUpperCase() : key.toLowerCase();
+					//DOM_key.textContent = (this.properties.isCapsEnable || this.properties.isShiftEnable) ? key.toUpperCase() : key.toLowerCase();
+					DOM_key.textContent = ( !(this.properties.isCapsEnable && this.properties.isShiftEnable) && (this.properties.isShiftEnable || this.properties.isCapsEnable) ) ? key.toUpperCase() : key.toLowerCase();
 
 					DOM_key.addEventListener("click", (e) => {
 						// if (document.activeElement === this.properties.textarea.value)
@@ -386,6 +388,27 @@ const keyboard = {
 // };
 keyboard.init();
 
+// Создаем распознаватель
+var recognizer = new webkitSpeechRecognition();
+
+// Ставим опцию, чтобы распознавание началось ещё до того, как пользователь закончит говорить
+recognizer.interimResults = true;
+
+// Какой язык будем распознавать?
+recognizer.lang = 'ru-Ru';
+
+// Используем колбек для обработки результатов
+recognizer.onresult = function (event) {
+  var result = event.results[event.resultIndex];
+  if (result.isFinal) {
+    alert('Вы сказали: ' + result[0].transcript);
+  } else {
+    console.log('Промежуточный результат: ', result[0].transcript);
+  }
+};
+
+// Начинаем слушать микрофон и распознавать голос
+recognizer.start();
 
 // keyboard.properties.isCapsEnable = true;
 // keyboard.properties.isShiftEnable = true;
