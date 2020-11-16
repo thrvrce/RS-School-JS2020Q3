@@ -73,7 +73,7 @@ export default class GameArea {
     return ((parseInt(strToParse, 10) < 10) ? '0' : '') + strToParse;
   }
 
-  DrawNewPuzzle(NumOfPieces = 3, image = '../images/1.jpg') {
+  DrawNewPuzzle(NumOfPieces = 3, image = './images/1.jpg') {
     this.clearCanvas();
     this.clearGameInfo();
     this.mode.textContent = `Mode: ${NumOfPieces}x${NumOfPieces}`;

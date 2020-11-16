@@ -56,7 +56,7 @@ export default class Menu {
     this.Settings.LI.appendChild(this.Settings.UL_IMG);
     this.Settings.UL_IMG.appendChild(document.createElement('br'));
     this.Settings.UL_IMG_IMAGE = document.createElement('img');
-    this.Settings.UL_IMG_IMAGE.src = '../images/1.jpg';
+    this.Settings.UL_IMG_IMAGE.src = './images/1.jpg';
     this.Settings.UL_IMG_IMAGE.id = 'settings_img';
     this.Settings.UL_IMG_IMAGE.width = 600;
     this.Settings.UL_IMG_IMAGE.height = 600;
@@ -70,7 +70,7 @@ export default class Menu {
     this.Settings.UL_IMG_prev.addEventListener('click', () => {
       const path = this.Settings.UL_IMG_IMAGE.src;
       const num = Number(path.substring(path.length - 5, path.length - 4)) - 1;
-      this.Settings.UL_IMG_IMAGE.src = `../images/${num % 9 || 9}.jpg`;
+      this.Settings.UL_IMG_IMAGE.src = `./images/${num % 9 || 9}.jpg`;
     });
 
     this.Settings.UL_IMG_Next = document.createElement('span');
@@ -80,7 +80,7 @@ export default class Menu {
     this.Settings.UL_IMG_Next.addEventListener('click', () => {
       const path = this.Settings.UL_IMG_IMAGE.src;
       const num = Number(path.substring(path.length - 5, path.length - 4)) + 1;
-      this.Settings.UL_IMG_IMAGE.src = `../images/${num % 9 || 9}.jpg`;
+      this.Settings.UL_IMG_IMAGE.src = `./images/${num % 9 || 9}.jpg`;
     });
     // NG back
     this.Settings.UL_BACK = document.createElement('ul');
