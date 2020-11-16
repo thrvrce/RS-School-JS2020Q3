@@ -79,7 +79,7 @@
           align-items: center;
   top: 30px;
   left: 0px;
-  opacity: 0.5;
+  opacity: 0,9;
   display: flex;
   position: absolute;
 }
@@ -253,6 +253,15 @@
   display: -ms-flexbox;
   display: flex;
   position: absolute;
+}
+
+.gameArea-menu-item {
+  text-align: center;
+  font-size: 20px;
+}
+
+.gameArea-menu-item:hover {
+  cursor: pointer;
 }
 
 .gameArea-menu-item_active {
