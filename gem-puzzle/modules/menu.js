@@ -47,6 +47,7 @@ export default class Menu {
       this.Settings[`UL_MODE_SEL_OPT_${i}`] = document.createElement('option');
       this.Settings[`UL_MODE_SEL_OPT_${i}`].textContent = opt;
       this.Settings[`UL_MODE_SEL_OPT_${i}`].value = i;
+      this.Settings[`UL_MODE_SEL_OPT_${i}`].selected = (i === 4);
       this.Settings.UL_MODE_SEL.appendChild(this.Settings[`UL_MODE_SEL_OPT_${i}`]);
     }
     // NG IMG
