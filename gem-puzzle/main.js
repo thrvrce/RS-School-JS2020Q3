@@ -32,24 +32,19 @@ myMenu.MainMenu.menuList.ListItem.Autoplay.DOM.addEventListener('click', () => {
       myMenu.MainMenu.menuList.ListItem.Autoplay.DOM.innerText = 'Autoplay';
     } else {
       myGameArea.gameArea.isAutoplay = true;
-      //   myGameArea.Autoplay = myGameArea.tryToResolveAlg();
-
-      // }
 
       myMenu.setMenuVisible(myMenu.MainMenu);
 
-      // console.log(myGameArea.HasSolution());
-      // setTimeout(() => { myGameArea.tryToResolveAlg(); }, 300);
       setTimeout(() => {
         myGameArea.Autoplay = getSolution(myGameArea.getCurPuzzleAsArray(), myGameArea);
         if (myGameArea.Autoplay !== null) {
           myMenu.MainMenu.menuList.ListItem.Autoplay.DOM.innerText = 'Autoplay: active';
         }
-      // myGameArea.tryToResolveAlg();
       }, 300);
     }
   }
 });
+
 myGameArea.puzzleArea.addEventListener('click', (e) => {
   if (myGameArea.PuzzleObj !== undefined) {
     if (myGameArea.PuzzleObj.CanMove) {
