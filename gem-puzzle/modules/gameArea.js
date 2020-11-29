@@ -1,3 +1,6 @@
+// eslint-disable-next-line import/extensions
+// import getSolution from './getSolution.js';
+
 export default class GameArea {
   constructor() {
     this.audioVictory = new Audio('./Sound/Victory.mp3');
@@ -188,32 +191,74 @@ export default class GameArea {
       dyCenter: this.PuzzleObj.Pieces[index].dyCenter,
     };
 
+    const destToNewX = this.PuzzleObj.Pieces[freeRect].dx - this.PuzzleObj.Pieces[index].dx;
+    const destToNewY = this.PuzzleObj.Pieces[freeRect].dy - this.PuzzleObj.Pieces[index].dy;
+    // console.log(destToNewX);
+    // console.log(destToNewY);
+    // while (this.PuzzleObj.Pieces[index].dx !== this.PuzzleObj.Pieces[freeRect].dx)
     this.PuzzleObj.Pieces[index].PosDst = this.PuzzleObj.Pieces[freeRect].PosDst;
-    this.PuzzleObj.Pieces[index].dx = this.PuzzleObj.Pieces[freeRect].dx;
-    this.PuzzleObj.Pieces[index].dy = this.PuzzleObj.Pieces[freeRect].dy;
-    this.PuzzleObj.Pieces[index].dxCenter = this.PuzzleObj.Pieces[freeRect].dxCenter;
-    this.PuzzleObj.Pieces[index].dyCenter = this.PuzzleObj.Pieces[freeRect].dyCenter;
-    this.drawPiece(this.PuzzleObj.Pieces[index]);
-
     this.PuzzleObj.Pieces[freeRect].PosDst = buffS.PosDst;
     this.PuzzleObj.Pieces[freeRect].dx = buffS.dx;
     this.PuzzleObj.Pieces[freeRect].dy = buffS.dy;
     this.PuzzleObj.Pieces[freeRect].dxCenter = buffS.dxCenter;
     this.PuzzleObj.Pieces[freeRect].dyCenter = buffS.dyCenter;
-    this.drawPiece(this.PuzzleObj.Pieces[freeRect]);
+    let counter = 0;
+    const interval = setInterval(() => {
+      if (/* (Math.ceil(this.PuzzleObj.Pieces[index].dx) !== Math.ceil(buffS.dx + destToNewX)) || Math.ceil(this.PuzzleObj.Pieces[index].dy) !== Math.ceil(buffS.dy + destToNewY) || */ counter < 100) {
+        counter++;
+        // console.log(counter);
+        // console.log(this.PuzzleObj.Pieces[index].dx);
+        this.drawPiece(this.PuzzleObj.Pieces[freeRect]);
 
-    this.PuzzleObj.Score += 1;
-    this.score.textContent = `Score: ${this.PuzzleObj.Score}`;
+        this.PuzzleObj.Pieces[index].dx += destToNewX * (1 / 100);
+        this.PuzzleObj.Pieces[index].dy += destToNewY * (1 / 100);
 
-    if (this.CheckIfPuzzleComplete()) {
-      this.doSound('Victory');
-      this.PuzzleObj.isResolved = true;
-      this.PuzzleObj.CanMove = false;
-      const message = `Ура! Вы решили головоломку за ${this.addZero(Math.floor(this.PuzzleObj.time / 60))}:${this.addZero(this.PuzzleObj.time % 59 || 59)} и ${this.PuzzleObj.Score} ходов`;
-      setTimeout(() => {
-        alert(message);
-      }, 1000);
-    }
+        this.PuzzleObj.Pieces[index].dxCenter += destToNewX * (1 / 100);
+        this.PuzzleObj.Pieces[index].dyCenter += destToNewY * (1 / 100);
+        this.drawPiece(this.PuzzleObj.Pieces[index]);
+      } else {
+        this.context.clearRect(this.PuzzleObj.Pieces[freeRect].dx - this.PuzzleObj.borderWeight,
+															 this.PuzzleObj.Pieces[freeRect].dy - this.PuzzleObj.borderWeight,
+															 this.PuzzleObj.Pieces[freeRect].dWidth + this.PuzzleObj.borderWeight + this.PuzzleObj.borderWeight,
+															 this.PuzzleObj.Pieces[freeRect].dHeight + this.PuzzleObj.borderWeight + this.PuzzleObj.borderWeight);
+
+        this.drawPiece(this.PuzzleObj.Pieces[freeRect]);
+
+        this.context.clearRect(this.PuzzleObj.Pieces[index].dx - this.PuzzleObj.borderWeight,
+          											this.PuzzleObj.Pieces[index].dy - this.PuzzleObj.borderWeight,
+          											this.PuzzleObj.Pieces[index].dWidth + this.PuzzleObj.borderWeight + this.PuzzleObj.borderWeight,
+          											this.PuzzleObj.Pieces[index].dHeight + this.PuzzleObj.borderWeight + this.PuzzleObj.borderWeight);
+
+        // 	this.PuzzleObj.Pieces[index].dx += destToNewX * (1 / 100);
+        // this.PuzzleObj.Pieces[index].dy += destToNewY * (1 / 100);
+        // this.PuzzleObj.Pieces[index].PosDst = this.PuzzleObj.Pieces[freeRect].PosDst;
+        // this.PuzzleObj.Pieces[index].dxCenter += destToNewX * (1 / 100);
+        // this.PuzzleObj.Pieces[index].dyCenter += destToNewY * (1 / 100);
+        this.drawPiece(this.PuzzleObj.Pieces[index]);
+        this.PuzzleObj.Score += 1;
+        this.score.textContent = `Score: ${this.PuzzleObj.Score}`;
+
+        if (this.CheckIfPuzzleComplete()) {
+          this.doSound('Victory');
+          this.PuzzleObj.isResolved = true;
+          this.PuzzleObj.CanMove = false;
+          this.PuzzleObj.isAutoplay = false;
+          const message = `Ура! Вы решили головоломку за ${this.addZero(Math.floor(this.PuzzleObj.time / 60))}:${this.addZero(this.PuzzleObj.time % 59 || 59)} и ${this.PuzzleObj.Score} ходов`;
+          setTimeout(() => {
+            alert(message);
+          }, 1000);
+        }
+
+        clearInterval(interval);
+      }
+    }, 5);
+
+    // this.PuzzleObj.Pieces[freeRect].PosDst = buffS.PosDst;
+    // this.PuzzleObj.Pieces[freeRect].dx = buffS.dx;
+    // this.PuzzleObj.Pieces[freeRect].dy = buffS.dy;
+    // this.PuzzleObj.Pieces[freeRect].dxCenter = buffS.dxCenter;
+    // this.PuzzleObj.Pieces[freeRect].dyCenter = buffS.dyCenter;
+    // this.drawPiece(this.PuzzleObj.Pieces[freeRect]);
   }
 
   getFreePieseIndex() {
@@ -230,6 +275,16 @@ export default class GameArea {
     let forret;
     this.PuzzleObj.Pieces.forEach((element, index) => {
       if (element.PosSrc === PosSrc) {
+        forret = index;
+      }
+    });
+    return forret;
+  }
+
+  getPieseIndexbyPosDst(PosDst) { // получить индекс элемента по позиции на холсте
+    let forret;
+    this.PuzzleObj.Pieces.forEach((element, index) => {
+      if (element.PosDst === PosDst) {
         forret = index;
       }
     });
@@ -307,21 +362,45 @@ export default class GameArea {
     return minVal;
   }
 
-  tryToResolve() {
-    if (this.gameArea.isAutoplay) {
-      return setInterval(() => {
-        this.PuzzleObj.isUseSound = false;
-        if (!this.PuzzleObj.isResolved) {
-          const min = this.getMinStartPos();
-          const max = (this.PuzzleObj.NumOfPieces ** 2);
-          const i = Math.floor(Math.random() * (max - min)) + min;
-          const j = this.getPieseIndexbyPosSrc(i);
-          if (this.isMovablePiece(j)) {
-            this.move(j);
-          }
-        }
-        this.PuzzleObj.isUseSound = true;
-      }, 1);
+  // tryToResolve() {//решение перебором, не актуально
+  //   if (this.gameArea.isAutoplay) {
+  //     return setInterval(() => {
+  //       this.PuzzleObj.isUseSound = false;
+  //       if (!this.PuzzleObj.isResolved) {
+  //         const min = this.getMinStartPos();
+  //         const max = (this.PuzzleObj.NumOfPieces ** 2);
+  //         const i = Math.floor(Math.random() * (max - min)) + min;
+  //         const j = this.getPieseIndexbyPosSrc(i);
+  //         if (this.isMovablePiece(j)) {
+  //           this.move(j);
+  //         }
+  //       }
+  //       this.PuzzleObj.isUseSound = true;
+  //     }, 1);
+  //   }
+  // }
+
+  // алгоритмическое авторешение
+  tryToResolveAlg(Solution) {
+    // const Solution = getSolution(this.getCurPuzzleAsArray(), this);
+    console.log(Solution);
+    if (Solution.lentgth !== 0) {
+      let timeout = 0;
+      Solution.forEach((value) => {
+        const IndexOfMovedPiece = this.getPieseIndexbyPosSrc(value);
+        // this.move(IndexOfMovedPiece);
+        timeout += 3000;
+        setTimeout((v) => { this.move(v); }, timeout, IndexOfMovedPiece);
+      });
     }
+  }
+
+  getCurPuzzleAsArray() { // преобразование текущего паззла в массив для последующего преобразования в упрощенный объект-узел дерева состояний
+    const arrOfItems = [];
+
+    for (let i = 0; i < this.PuzzleObj.NumOfPieces ** 2; i++) {
+      arrOfItems.push(this.PuzzleObj.Pieces[this.getPieseIndexbyPosDst(i)].PosSrc);
+    }
+    return arrOfItems;
   }
 }
