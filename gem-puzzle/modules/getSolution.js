@@ -95,11 +95,12 @@ class Node {
 export default function getSolution(PuzzleAsArray, puzzleObj) {
   // const closedList = [];
   const openList = [];// массив состояний
+  const closedList = [];// массив состояний проверенных
   let resolved = false;
   const solution = [];
   const MainNode = new Node(PuzzleAsArray);
   // индекс подобного состояния в массиве обрабатываемых состояний
-  function getNodeIndex(node) {
+  function getNodeIndexInOpenList(node) {
     let position = null;
     // openList.forEach((value, index) => {
     //   if (value.key === node.key) {
@@ -108,6 +109,22 @@ export default function getSolution(PuzzleAsArray, puzzleObj) {
     // });
     for (let i = 0; i < openList.length; i++) {
       if (openList[i].key === node.key) {
+        position = i;
+        break;
+      }
+    }
+    return position;
+  }
+
+  function getNodeIndexInClosedList(node) {
+    let position = null;
+    // openList.forEach((value, index) => {
+    //   if (value.key === node.key) {
+    //     position = index;
+    //   }
+    // });
+    for (let i = 0; i < closedList.length; i++) {
+      if (closedList[i].key === node.key) {
         position = i;
         break;
       }
@@ -166,15 +183,20 @@ export default function getSolution(PuzzleAsArray, puzzleObj) {
     let counter = 0;
     // while (openList.length !== 0 /* && counter < 100000 */ && !resolved) {
 
-    const t = setInterval(() => {
+    const t = setInterval(() => { // способ избавиться от зависания окна при расчетах
       let innerCounter = 0;
       while (innerCounter !== 100 && !resolved) {
         const curNode = getNodeWithMinDepth();
         const childrens = curNode.createChildNodes();
-			 openList.splice(getNodeIndex(curNode), 1);
+			 openList.splice(getNodeIndexInOpenList(curNode), 1);
+			 closedList.push(curNode);
+			 // console.log(`open: ${openList.length}; closed: ${closedList.length}`);
         for (let i = 0; i < childrens.length; i++) {
           const value = childrens[i];
-          const valueIndexInOpenList = getNodeIndex(value);
+          if (getNodeIndexInClosedList(value) !== null) {
+            continue;
+          }
+          const valueIndexInOpenList = getNodeIndexInOpenList(value);
           if (value.notResolvedPos === 0) {
             resolved = true;
             clearInterval(t);

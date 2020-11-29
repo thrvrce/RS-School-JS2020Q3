@@ -202,9 +202,12 @@ export default class GameArea {
     this.PuzzleObj.Pieces[freeRect].dy = buffS.dy;
     this.PuzzleObj.Pieces[freeRect].dxCenter = buffS.dxCenter;
     this.PuzzleObj.Pieces[freeRect].dyCenter = buffS.dyCenter;
-
+    let counter = 0;
     const interval = setInterval(() => {
-      if ((Math.ceil(this.PuzzleObj.Pieces[index].dx) !== Math.ceil(buffS.dx + destToNewX)) || Math.ceil(this.PuzzleObj.Pieces[index].dy) !== Math.ceil(buffS.dy + destToNewY)) {
+      if (/* (Math.ceil(this.PuzzleObj.Pieces[index].dx) !== Math.ceil(buffS.dx + destToNewX)) || Math.ceil(this.PuzzleObj.Pieces[index].dy) !== Math.ceil(buffS.dy + destToNewY) || */ counter < 100) {
+        counter++;
+        // console.log(counter);
+        // console.log(this.PuzzleObj.Pieces[index].dx);
         this.drawPiece(this.PuzzleObj.Pieces[freeRect]);
 
         this.PuzzleObj.Pieces[index].dx += destToNewX * (1 / 100);
@@ -386,7 +389,7 @@ export default class GameArea {
       Solution.forEach((value) => {
         const IndexOfMovedPiece = this.getPieseIndexbyPosSrc(value);
         // this.move(IndexOfMovedPiece);
-        timeout += 1200;
+        timeout += 3000;
         setTimeout((v) => { this.move(v); }, timeout, IndexOfMovedPiece);
       });
     }
