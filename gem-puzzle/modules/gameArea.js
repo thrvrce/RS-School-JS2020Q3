@@ -1,3 +1,6 @@
+// eslint-disable-next-line import/extensions
+// import getSolution from './getSolution.js';
+
 export default class GameArea {
   constructor() {
     this.audioVictory = new Audio('./Sound/Victory.mp3');
@@ -236,6 +239,16 @@ export default class GameArea {
     return forret;
   }
 
+  getPieseIndexbyPosDst(PosDst) { // получить индекс элемента по позиции на холсте
+    let forret;
+    this.PuzzleObj.Pieces.forEach((element, index) => {
+      if (element.PosDst === PosDst) {
+        forret = index;
+      }
+    });
+    return forret;
+  }
+
   isPieceResolvedByPosSrc(PosSrc) {
     let forret = false;
     const element = this.PuzzleObj.Pieces[this.getPieseIndexbyPosSrc(PosSrc)];
@@ -307,21 +320,45 @@ export default class GameArea {
     return minVal;
   }
 
-  tryToResolve() {
-    if (this.gameArea.isAutoplay) {
-      return setInterval(() => {
-        this.PuzzleObj.isUseSound = false;
-        if (!this.PuzzleObj.isResolved) {
-          const min = this.getMinStartPos();
-          const max = (this.PuzzleObj.NumOfPieces ** 2);
-          const i = Math.floor(Math.random() * (max - min)) + min;
-          const j = this.getPieseIndexbyPosSrc(i);
-          if (this.isMovablePiece(j)) {
-            this.move(j);
-          }
-        }
-        this.PuzzleObj.isUseSound = true;
-      }, 1);
+  // tryToResolve() {//решение перебором, не актуально
+  //   if (this.gameArea.isAutoplay) {
+  //     return setInterval(() => {
+  //       this.PuzzleObj.isUseSound = false;
+  //       if (!this.PuzzleObj.isResolved) {
+  //         const min = this.getMinStartPos();
+  //         const max = (this.PuzzleObj.NumOfPieces ** 2);
+  //         const i = Math.floor(Math.random() * (max - min)) + min;
+  //         const j = this.getPieseIndexbyPosSrc(i);
+  //         if (this.isMovablePiece(j)) {
+  //           this.move(j);
+  //         }
+  //       }
+  //       this.PuzzleObj.isUseSound = true;
+  //     }, 1);
+  //   }
+  // }
+
+  // алгоритмическое авторешение
+  tryToResolveAlg(Solution) {
+    // const Solution = getSolution(this.getCurPuzzleAsArray(), this);
+    console.log(Solution);
+    if (Solution.lentgth !== 0) {
+      let timeout = 0;
+      Solution.forEach((value) => {
+        const IndexOfMovedPiece = this.getPieseIndexbyPosSrc(value);
+        // this.move(IndexOfMovedPiece);
+        timeout += 1200;
+        setTimeout((v) => { this.move(v); }, timeout, IndexOfMovedPiece);
+      });
     }
+  }
+
+  getCurPuzzleAsArray() { // преобразование текущего паззла в массив для последующего преобразования в упрощенный объект-узел дерева состояний
+    const arrOfItems = [];
+
+    for (let i = 0; i < this.PuzzleObj.NumOfPieces ** 2; i++) {
+      arrOfItems.push(this.PuzzleObj.Pieces[this.getPieseIndexbyPosDst(i)].PosSrc);
+    }
+    return arrOfItems;
   }
 }

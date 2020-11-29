@@ -1,6 +1,7 @@
 /* eslint-disable import/extensions */
 import GameArea from './modules/gameArea.js';
 import Menu from './modules/menu.js';
+import getSolution from './modules/getSolution.js';
 
 const myGameArea = new GameArea();
 const myMenu = new Menu(myGameArea.getMainNode());
@@ -10,9 +11,11 @@ myMenu.MainMenu.menuList.ListItem.New.DOM.addEventListener('click', () => {
   if (myGameArea.gameArea.isAutoplay) {
     myGameArea.gameArea.isAutoplay = false;
     clearInterval(myGameArea.Autoplay);
+    myMenu.MainMenu.menuList.ListItem.Autoplay.DOM.innerText = 'Autoplay';
   }
   myGameArea.gameArea.isAutoplay = false;
   myGameArea.DrawNewPuzzle(myMenu.Settings.UL_MODE_SEL.value, myMenu.Settings.UL_IMG_IMAGE.src);
+
   myMenu.setMenuVisible(myMenu.MainMenu);
 });
 
@@ -26,14 +29,25 @@ myMenu.MainMenu.menuList.ListItem.Autoplay.DOM.addEventListener('click', () => {
     if (myGameArea.gameArea.isAutoplay) {
       myGameArea.gameArea.isAutoplay = false;
       clearInterval(myGameArea.Autoplay);
-      myMenu.MainMenu.menuList.ListItem.Autoplay.DOM.textConten = 'Autoplay';
+      myMenu.MainMenu.menuList.ListItem.Autoplay.DOM.innerText = 'Autoplay';
     } else {
       myGameArea.gameArea.isAutoplay = true;
-      myGameArea.Autoplay = myGameArea.tryToResolve();
-      myMenu.MainMenu.menuList.ListItem.Autoplay.DOM.textConten = 'Autoplay: active';
-    }
+      //   myGameArea.Autoplay = myGameArea.tryToResolveAlg();
 
-    myMenu.setMenuVisible(myMenu.MainMenu);
+      // }
+
+      myMenu.setMenuVisible(myMenu.MainMenu);
+
+      // console.log(myGameArea.HasSolution());
+      // setTimeout(() => { myGameArea.tryToResolveAlg(); }, 300);
+      setTimeout(() => {
+        myGameArea.Autoplay = getSolution(myGameArea.getCurPuzzleAsArray(), myGameArea);
+        if (myGameArea.Autoplay !== null) {
+          myMenu.MainMenu.menuList.ListItem.Autoplay.DOM.innerText = 'Autoplay: active';
+        }
+      // myGameArea.tryToResolveAlg();
+      }, 300);
+    }
   }
 });
 myGameArea.puzzleArea.addEventListener('click', (e) => {
