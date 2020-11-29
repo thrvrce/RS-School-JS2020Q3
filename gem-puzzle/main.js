@@ -6,7 +6,7 @@ import getSolution from './modules/getSolution.js';
 const myGameArea = new GameArea();
 const myMenu = new Menu(myGameArea.getMainNode());
 myGameArea.menuBtn.addEventListener('click', (e) => { myMenu.menuHandler(e); });
-
+myGameArea.DrawNewPuzzle(myMenu.Settings.UL_MODE_SEL.value, myMenu.Settings.UL_IMG_IMAGE.src);
 myMenu.MainMenu.menuList.ListItem.New.DOM.addEventListener('click', () => {
   if (myGameArea.gameArea.isAutoplay) {
     myGameArea.gameArea.isAutoplay = false;
