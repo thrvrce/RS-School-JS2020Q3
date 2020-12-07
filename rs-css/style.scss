@@ -1,0 +1,153 @@
+*{
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	box-sizing: border-box;
+}
+body{
+	margin: 0 auto;
+
+	background-color: rgb(34, 167, 201);
+
+
+}
+li{
+	list-style-type: none;
+	text-decoration: underline;
+	color: rgba(39, 36, 36, 0.8);;
+}
+li:hover{
+	cursor: pointer;
+}
+.li_done{
+	color: rgb(116, 113, 36);;
+}
+
+.wrapper{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+
+}
+.codeArea{
+	display: flex;
+	flex-direction: column;
+	width: 500px;
+
+}
+
+.codeArea-input{
+	display: flex;
+	flex-direction: row;
+}
+textarea{
+	width: 433px;
+	height: 80px;
+}
+.aquarium{
+  border:1px solid black;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	width: 500px;
+	height: 400px;
+
+
+background-image: url(./images/aquariumBackground.jpg);
+background-repeat: no-repeat, no-repeat;
+background-position: center;
+background-size: cover;
+
+}
+
+.levels{
+	margin-left: 20px;
+}
+.column{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.row{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+.selectable{
+	 transform-origin: bottom;
+  animation:  myAnimation 1s infinite;
+   animation-delay: 0s, .5s;
+}
+.hide{
+	transform-origin: bottom;
+ animation:  hide 1s ;
+	animation-delay: 0s, .5s;
+}
+
+ .selectable:hover{
+
+		cursor: pointer;
+	background-color: rgba(255,255,255,0.4);
+
+	border-radius: 50%;
+}
+button:hover{
+	cursor: pointer;
+}
+castle{
+	background-image: url(./images/castle.svg);
+	width: 200px;
+	height: 200px;
+}
+fish{
+	background-image: url(./images/clown-fish.svg);
+	width: 50px;
+	height: 50px;
+}
+octopus{
+	background-image: url(./images/octopus.svg);
+	width: 100px;
+	height: 100px;
+	background-repeat: no-repeat, no-repeat;
+	background-position: center;
+}
+shell{
+	background-image: url(./images/shell.svg);
+	width: 40px;
+	height: 40px;
+	background-repeat: no-repeat, no-repeat;
+	background-position: center;
+}
+captainHat{
+	background-image: url(./images/captain.svg);
+	width: 70px;
+	height: 70px;
+	background-repeat: no-repeat, no-repeat;
+	background-position: center;
+	margin-bottom: -30px;
+}
+googles{
+	background-image: url(./images/goggles.svg);
+	width: 70px;
+	height: 70px;
+	background-repeat: no-repeat, no-repeat;
+	background-position: center;
+}
+
+
+
+@keyframes myAnimation {
+  0%   { transform:   scale(1); }
+  25%  { transform:  scale(0.9); }
+  50%  { transform:  scale(0.8); }
+  75%  { transform:  scale(0.9); }
+  100% {transform: scale(1); }
+}
+@keyframes hide {
+  0%   { transform:   scale(1); }
+  25%  { transform:  scale(0.7); }
+  50%  { transform:  scale(0.5); }
+  75%  { transform:  scale(0.3); }
+  100% {transform: scale(0); }
+}
