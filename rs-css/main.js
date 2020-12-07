@@ -62,19 +62,21 @@ function createLevel(Items) {
 }
 
 function checkCssSelector(selectorToTest) {
-  const NodesForTest = document.querySelectorAll(selectorToTest);
-  const NodesFromLevel = document.querySelectorAll(curentLevel.selector);
   let isEqualNodes = false;
-  if (NodesForTest.length === NodesFromLevel.length) {
-    isEqualNodes = true;
-    for (let i = 0; i < NodesFromLevel.length; i += 1) {
-      if (NodesForTest[i] !== NodesFromLevel[i]) {
-        isEqualNodes = false;
-        break;
+  if (selectorToTest) {
+    const NodesForTest = document.querySelectorAll(selectorToTest);
+    const NodesFromLevel = document.querySelectorAll(curentLevel.selector);
+
+    if (NodesForTest.length === NodesFromLevel.length) {
+      isEqualNodes = true;
+      for (let i = 0; i < NodesFromLevel.length; i += 1) {
+        if (NodesForTest[i] !== NodesFromLevel[i]) {
+          isEqualNodes = false;
+          break;
+        }
       }
     }
   }
-
   return isEqualNodes;
 }
 
@@ -88,11 +90,20 @@ function insertLevel(_level) {
   HTMLcodeNode.appendChild(_level.FragmentHtml);
 }
 
-enterButton.addEventListener('click', () => {
-  if (inputCssSelector.value) {
+inputCssSelector.addEventListener('keyup', (e) => {
+  if (e.key === 'Enter') {
     if (checkCssSelector(inputCssSelector.value)) {
       alert('Succes!');
+    } else {
+      alert('Try another selector, please.');
     }
+  }
+});
+enterButton.addEventListener('click', () => {
+  if (checkCssSelector(inputCssSelector.value)) {
+    alert('Succes!');
+  } else {
+    alert('Try another selector, please.');
   }
 
   // console.log(document.querySelectorAll(inputCssSelector.value));
