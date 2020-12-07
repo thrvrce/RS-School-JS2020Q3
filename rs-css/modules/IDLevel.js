@@ -1,4 +1,5 @@
 const IDLevel = {
+  levelNum: 3,
   items: [
     {
       item: 'castle',

@@ -1,4 +1,5 @@
 const TypeLevel = {
+  levelNum: 1,
   items: [
     {
       item: 'fish',

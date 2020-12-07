@@ -1,4 +1,5 @@
 const DescendantCombinatorLevel = {
+  levelNum: 5,
   items: [
     {
       item: 'castle',

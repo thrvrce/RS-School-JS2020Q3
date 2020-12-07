@@ -9,19 +9,70 @@ import GeneralSibingLevel from './modules/GeneralSibingLevel.js';
 import AdjastedSiblingCombLevel from './modules/AdjastedSiblingCombLevel.js';
 import EleventClassLevel from './modules/EleventClassLevel.js';
 
+function getLevelobj(num) {
+  let curLevel = null;
+  switch (num) {
+    case '1':
+      curLevel = TypeLevel;
+      break;
+    case '2':
+      curLevel = classLevel;
+      break;
+    case '3':
+      curLevel = IDLevel;
+      break;
+    case '4':
+      curLevel = ListLevel;
+      break;
+    case '5':
+      curLevel = DescendantCombinatorLevel;
+      break;
+    case '6':
+      curLevel = ChildCombinator;
+      break;
+    case '7':
+      curLevel = EmptyLevel;
+      break;
+    case '8':
+      curLevel = GeneralSibingLevel;
+      break;
+    case '9':
+      curLevel = AdjastedSiblingCombLevel;
+      break;
+    case '10':
+      curLevel = EleventClassLevel;
+      break;
+    default: break;
+  }
+  return curLevel;
+}
+function getLevel() {
+  if (localStorage.getItem('lastLevel') !== null) {
+    return getLevelobj(localStorage.getItem('lastLevel'));
+  }
+  return null;
+}
+function saveLevel(curLevel) {
+  localStorage.setItem('lastLevel', curLevel);
+}
 const aquariumNode = document.querySelector('.aquarium');
 const HTMLcodeNode = document.querySelector('.HTMLCodeNode');
 
 const enterButton = document.querySelector('.enter');
 const helpButton = document.querySelector('.help');
 const inputCssSelector = document.querySelector('.selectorInput');
-let curentLevel = IDLevel;
+let curentLevel = getLevel();
+if (curentLevel === null) {
+  curentLevel = TypeLevel;
+  saveLevel(curentLevel.levelNum);
+}
 
 function createLevel(Items) {
   const levelFragment = {
     aquariumFragment: document.createDocumentFragment(),
     FragmentHtml: document.createDocumentFragment(),
   };
+  // document.getElementById(curentLevel.levelNum);
 
   for (let i = 0; i < Items.length; i += 1) {
     const element = Items[i];
@@ -133,40 +184,41 @@ menu.forEach((menuItem) => {
     DeleteChilds(aquariumNode);
     DeleteChilds(HTMLcodeNode);
     inputCssSelector.value = '';
-
-    switch (e.target.id) {
-      case '1':
-        curentLevel = TypeLevel;
-        break;
-      case '2':
-        curentLevel = classLevel;
-        break;
-      case '3':
-        curentLevel = IDLevel;
-        break;
-      case '4':
-        curentLevel = ListLevel;
-        break;
-      case '5':
-        curentLevel = DescendantCombinatorLevel;
-        break;
-      case '6':
-        curentLevel = ChildCombinator;
-        break;
-      case '7':
-        curentLevel = EmptyLevel;
-        break;
-      case '8':
-        curentLevel = GeneralSibingLevel;
-        break;
-      case '9':
-        curentLevel = AdjastedSiblingCombLevel;
-        break;
-      case '10':
-        curentLevel = EleventClassLevel;
-        break;
-      default: break;
-    }
+    saveLevel(e.target.id);
+    curentLevel = getLevelobj(e.target.id);
+    // switch (e.target.id) {
+    //   case '1':
+    //     curentLevel = TypeLevel;
+    //     break;
+    //   case '2':
+    //     curentLevel = classLevel;
+    //     break;
+    //   case '3':
+    //     curentLevel = IDLevel;
+    //     break;
+    //   case '4':
+    //     curentLevel = ListLevel;
+    //     break;
+    //   case '5':
+    //     curentLevel = DescendantCombinatorLevel;
+    //     break;
+    //   case '6':
+    //     curentLevel = ChildCombinator;
+    //     break;
+    //   case '7':
+    //     curentLevel = EmptyLevel;
+    //     break;
+    //   case '8':
+    //     curentLevel = GeneralSibingLevel;
+    //     break;
+    //   case '9':
+    //     curentLevel = AdjastedSiblingCombLevel;
+    //     break;
+    //   case '10':
+    //     curentLevel = EleventClassLevel;
+    //     break;
+    //   default: break;
+    // }
     insertLevel(createLevel(curentLevel.items));
   });
 });

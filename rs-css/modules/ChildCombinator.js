@@ -1,4 +1,5 @@
 const ChildCombinator = {
+  levelNum: 6,
   items: [
     {
       item: 'castle',
