@@ -1,22 +1,22 @@
-const IDLevel = {
+const ListLevel = {
   items: [
     {
       item: 'castle',
-      class: 'castleWithaFish',
+
       isSelectable: false,
       parent: null,
       childrensFlexProp: 'row',
       childrens: [
         {
           item: 'fish',
-          id: 'first_fish',
-          isSelectable: false,
+          class: 'firstOfTheirKind',
+          isSelectable: true,
           parent: null,
           childrens: undefined,
         },
         {
           item: 'fish',
-          id: 'second_fish',
+
           isSelectable: false,
           parent: null,
           childrens: null,
@@ -24,7 +24,7 @@ const IDLevel = {
         {
           item: 'fish',
           id: 'third_fish',
-          isSelectable: false,
+          isSelectable: true,
           parent: null,
           childrens: null,
         },
@@ -32,8 +32,8 @@ const IDLevel = {
     },
     {
       item: 'octopus',
-      id: 'octopusWithoutGoogles',
-      isSelectable: false,
+      class: 'firstOfTheirKind',
+      isSelectable: true,
       parent: null,
       childrens: null,
     },
@@ -54,13 +54,12 @@ const IDLevel = {
     },
     {
       item: 'shell',
-      id: 'lonelyShell',
       isSelectable: true,
       parent: null,
       childrens: null,
     },
 
   ],
-  selector: '#lonelyShell',
+  selector: '.firstOfTheirKind, #third_fish, shell',
 };
-export default IDLevel;
+export default ListLevel;

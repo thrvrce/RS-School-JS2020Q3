@@ -28,12 +28,12 @@ const TypeLevel = {
 
     {
       item: 'shell',
-      isSelectable: true,
+      isSelectable: false,
       parent: null,
       childrens: null,
     },
   ],
-  selector: 'fish, shell',
+  selector: 'fish',
 
 };
 export default TypeLevel;

@@ -7,15 +7,13 @@
 
 body {
   margin: 0 auto;
-  background: white;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(12%, white), color-stop(26%, rgba(227, 225, 220, 0.964023)), to(#009bff));
-  background: linear-gradient(180deg, white 12%, rgba(227, 225, 220, 0.964023) 26%, #009bff 100%);
+  background-color: #22a7c9;
 }
 
 li {
   list-style-type: none;
   text-decoration: underline;
-  color: rgba(39, 36, 36, 0.4);
+  color: rgba(39, 36, 36, 0.8);
 }
 
 li:hover {
@@ -23,7 +21,7 @@ li:hover {
 }
 
 .li_done {
-  color: #272424;
+  color: #747124;
 }
 
 .wrapper {
@@ -58,6 +56,11 @@ li:hover {
           flex-direction: row;
 }
 
+textarea {
+  width: 433px;
+  height: 80px;
+}
+
 .aquarium {
   border: 1px solid black;
   display: -webkit-box;
@@ -70,7 +73,7 @@ li:hover {
       -ms-flex-align: end;
           align-items: flex-end;
   width: 500px;
-  height: 500px;
+  height: 400px;
   background-image: url(./images/aquariumBackground.jpg);
   background-repeat: no-repeat, no-repeat;
   background-position: center;
@@ -131,9 +134,14 @@ li:hover {
           animation-delay: 0s, .5s;
 }
 
-.selected {
+.selectable:hover {
+  cursor: pointer;
   background-color: rgba(255, 255, 255, 0.4);
   border-radius: 50%;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 castle {

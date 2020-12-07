@@ -3,7 +3,7 @@ const classLevel = {
     {
       item: 'castle',
       class: 'castleWithaFish',
-      isSelectable: true,
+      isSelectable: false,
       parent: null,
       childrensFlexProp: 'row',
       childrens: [
@@ -53,6 +53,6 @@ const classLevel = {
     },
 
   ],
-  selector: '.castleWithaFish, .octopusWithGoogles',
+  selector: '.octopusWithGoogles',
 };
 export default classLevel;

@@ -1,45 +1,57 @@
-const IDLevel = {
+const EmptyLevel = {
   items: [
     {
       item: 'castle',
-      class: 'castleWithaFish',
       isSelectable: false,
       parent: null,
       childrensFlexProp: 'row',
       childrens: [
         {
           item: 'fish',
-          id: 'first_fish',
-          isSelectable: false,
+          id: 'frst_fish',
+          isSelectable: true,
           parent: null,
           childrens: undefined,
         },
         {
           item: 'fish',
-          id: 'second_fish',
-          isSelectable: false,
+          isSelectable: true,
           parent: null,
           childrens: null,
         },
         {
           item: 'fish',
-          id: 'third_fish',
-          isSelectable: false,
+          isSelectable: true,
           parent: null,
           childrens: null,
         },
       ],
     },
+
     {
-      item: 'octopus',
-      id: 'octopusWithoutGoogles',
+      item: 'octopusWithHat',
       isSelectable: false,
       parent: null,
-      childrens: null,
+      childrensFlexProp: 'column',
+      childrens: [
+        {
+          item: 'captainHat',
+          isSelectable: true,
+          parent: null,
+          childrens: null,
+        },
+        {
+          item: 'octopus',
+          isSelectable: true,
+          parent: null,
+          childrens: null,
+        },
+
+      ],
     },
+
     {
       item: 'octopus',
-      class: 'octopusWithGoogles',
       isSelectable: false,
       parent: null,
       childrensFlexProp: 'row',
@@ -52,15 +64,8 @@ const IDLevel = {
         },
       ],
     },
-    {
-      item: 'shell',
-      id: 'lonelyShell',
-      isSelectable: true,
-      parent: null,
-      childrens: null,
-    },
-
   ],
-  selector: '#lonelyShell',
+  selector: 'castle > :empty, octopusWithHat :empty',
 };
-export default IDLevel;
+
+export default EmptyLevel;
