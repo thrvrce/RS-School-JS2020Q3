@@ -6,6 +6,8 @@
 body{
 	margin: 0 auto;
 	//width: 900px;
+	background: rgb(255,255,255);
+background: linear-gradient(180deg, rgba(255,255,255,1) 12%, rgba(227,225,220,0.9640231092436975) 26%, rgba(0,155,255,1) 100%);
 
 }
 li{
@@ -24,8 +26,7 @@ li:hover{
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
-	  background: rgb(255,255,255);
-background: linear-gradient(180deg, rgba(255,255,255,1) 12%, rgba(227,225,220,0.9640231092436975) 26%, rgba(0,155,255,1) 100%);
+
 }
 .codeArea{
 	display: flex;
@@ -33,8 +34,10 @@ background: linear-gradient(180deg, rgba(255,255,255,1) 12%, rgba(227,225,220,0.
 	width: 500px;
 
 }
-.codeArea-code{
 
+.codeArea-input{
+	display: flex;
+	flex-direction: row;
 }
 .aquarium{
   border:1px solid black;
@@ -71,14 +74,26 @@ background-size: cover;
 	justify-content: center;
 }
 .selectable{
-	transform-origin: bottom;
+	 transform-origin: bottom;
   animation:  myAnimation 1s infinite;
-  animation-delay: 0s, .5s;
+   animation-delay: 0s, .5s;
 }
-.selectable:hover{
+.hide{
+	transform-origin: bottom;
+ animation:  hide 1s ;
+	animation-delay: 0s, .5s;
+}
+// div > span:hover{
+// 	cursor: pointer;
+// 	text-decoration: underline;
+// }
+ //.selectable:hover{
+	.selected{
 	background-color: rgba(255,255,255,0.4);
+	//animation:  none;
 	border-radius: 50%;
 }
+
 castle{
 	background-image: url(./images/castle.svg);
 	width: 200px;
@@ -120,23 +135,20 @@ googles{
 }
 
 
-@keyframes strobeStart {
-  0% {
-    transform:  skew(0deg,0deg) scaleY(1) ;
-    animation-timing-function: ease-in;
-   }
-  40% {
-    transform:  skew(0deg,0deg) scaleY(.9);
-    animation-timing-function: ease-out;
-  }
-  100% { transform:   skew(4deg,0deg) scaleX(1); }
-}
+
 @keyframes myAnimation {
   0%   { transform:   scale(1); }
   25%  { transform:  scale(0.9); }
   50%  { transform:  scale(0.8); }
   75%  { transform:  scale(0.9); }
   100% {transform: scale(1); }
+}
+@keyframes hide {
+  0%   { transform:   scale(1); }
+  25%  { transform:  scale(0.7); }
+  50%  { transform:  scale(0.5); }
+  75%  { transform:  scale(0.3); }
+  100% {transform: scale(0); }
 }
 // @media screen and (min-width: 900px) {
 

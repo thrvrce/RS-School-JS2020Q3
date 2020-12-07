@@ -7,6 +7,9 @@
 
 body {
   margin: 0 auto;
+  background: white;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(12%, white), color-stop(26%, rgba(227, 225, 220, 0.964023)), to(#009bff));
+  background: linear-gradient(180deg, white 12%, rgba(227, 225, 220, 0.964023) 26%, #009bff 100%);
 }
 
 li {
@@ -32,9 +35,6 @@ li:hover {
           justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  background: white;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(12%, white), color-stop(26%, rgba(227, 225, 220, 0.964023)), to(#009bff));
-  background: linear-gradient(180deg, white 12%, rgba(227, 225, 220, 0.964023) 26%, #009bff 100%);
 }
 
 .codeArea {
@@ -46,6 +46,16 @@ li:hover {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 500px;
+}
+
+.codeArea-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 .aquarium {
@@ -112,7 +122,16 @@ li:hover {
           animation-delay: 0s, .5s;
 }
 
-.selectable:hover {
+.hide {
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  -webkit-animation: hide 1s;
+          animation: hide 1s;
+  -webkit-animation-delay: 0s, .5s;
+          animation-delay: 0s, .5s;
+}
+
+.selected {
   background-color: rgba(255, 255, 255, 0.4);
   border-radius: 50%;
 }
@@ -162,44 +181,6 @@ googles {
   background-position: center;
 }
 
-@-webkit-keyframes strobeStart {
-  0% {
-    -webkit-transform: skew(0deg, 0deg) scaleY(1);
-            transform: skew(0deg, 0deg) scaleY(1);
-    -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
-  }
-  40% {
-    -webkit-transform: skew(0deg, 0deg) scaleY(0.9);
-            transform: skew(0deg, 0deg) scaleY(0.9);
-    -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
-  }
-  100% {
-    -webkit-transform: skew(4deg, 0deg) scaleX(1);
-            transform: skew(4deg, 0deg) scaleX(1);
-  }
-}
-
-@keyframes strobeStart {
-  0% {
-    -webkit-transform: skew(0deg, 0deg) scaleY(1);
-            transform: skew(0deg, 0deg) scaleY(1);
-    -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
-  }
-  40% {
-    -webkit-transform: skew(0deg, 0deg) scaleY(0.9);
-            transform: skew(0deg, 0deg) scaleY(0.9);
-    -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
-  }
-  100% {
-    -webkit-transform: skew(4deg, 0deg) scaleX(1);
-            transform: skew(4deg, 0deg) scaleX(1);
-  }
-}
-
 @-webkit-keyframes myAnimation {
   0% {
     -webkit-transform: scale(1);
@@ -243,6 +224,52 @@ googles {
   100% {
     -webkit-transform: scale(1);
             transform: scale(1);
+  }
+}
+
+@-webkit-keyframes hide {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  25% {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+  }
+  50% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  75% {
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3);
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+
+@keyframes hide {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  25% {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+  }
+  50% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  75% {
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3);
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
   }
 }
 /*# sourceMappingURL=style.css.map */
