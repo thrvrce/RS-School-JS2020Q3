@@ -1,4 +1,5 @@
 const GeneralSibingLevel = {
+  levelNum: 8,
   items: [
     {
       item: 'castle',

@@ -1,4 +1,5 @@
 const AdjastedSiblingCombLevel = {
+  levelNum: 9,
   items: [
     {
       item: 'castle',

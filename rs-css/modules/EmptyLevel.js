@@ -1,4 +1,5 @@
 const EmptyLevel = {
+  levelNum: 7,
   items: [
     {
       item: 'castle',

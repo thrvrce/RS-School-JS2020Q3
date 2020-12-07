@@ -1,4 +1,5 @@
 const classLevel = {
+  levelNum: 2,
   items: [
     {
       item: 'castle',

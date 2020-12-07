@@ -1,4 +1,5 @@
 const EleventClassLevel = {
+  levelNum: 10,
   items: [
     {
       item: 'castle',
