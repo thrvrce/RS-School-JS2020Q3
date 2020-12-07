@@ -1,1 +1,248 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+* {
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+}
+
+li {
+  list-style-type: none;
+  text-decoration: underline;
+  color: rgba(39, 36, 36, 0.4);
+}
+
+li:hover {
+  cursor: pointer;
+}
+
+.li_done {
+  color: #272424;
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  background: white;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(12%, white), color-stop(26%, rgba(227, 225, 220, 0.964023)), to(#009bff));
+  background: linear-gradient(180deg, white 12%, rgba(227, 225, 220, 0.964023) 26%, #009bff 100%);
+}
+
+.codeArea {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 500px;
+}
+
+.aquarium {
+  border: 1px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  width: 500px;
+  height: 500px;
+  background-image: url(./images/aquariumBackground.jpg);
+  background-repeat: no-repeat, no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.levels {
+  margin-left: 20px;
+}
+
+.column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.selectable {
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  -webkit-animation: myAnimation 1s infinite;
+          animation: myAnimation 1s infinite;
+  -webkit-animation-delay: 0s, .5s;
+          animation-delay: 0s, .5s;
+}
+
+.selectable:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+}
+
+castle {
+  background-image: url(./images/castle.svg);
+  width: 200px;
+  height: 200px;
+}
+
+fish {
+  background-image: url(./images/clown-fish.svg);
+  width: 50px;
+  height: 50px;
+}
+
+octopus {
+  background-image: url(./images/octopus.svg);
+  width: 100px;
+  height: 100px;
+  background-repeat: no-repeat, no-repeat;
+  background-position: center;
+}
+
+shell {
+  background-image: url(./images/shell.svg);
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat, no-repeat;
+  background-position: center;
+}
+
+captainHat {
+  background-image: url(./images/captain.svg);
+  width: 70px;
+  height: 70px;
+  background-repeat: no-repeat, no-repeat;
+  background-position: center;
+  margin-bottom: -30px;
+}
+
+googles {
+  background-image: url(./images/goggles.svg);
+  width: 70px;
+  height: 70px;
+  background-repeat: no-repeat, no-repeat;
+  background-position: center;
+}
+
+@-webkit-keyframes strobeStart {
+  0% {
+    -webkit-transform: skew(0deg, 0deg) scaleY(1);
+            transform: skew(0deg, 0deg) scaleY(1);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  40% {
+    -webkit-transform: skew(0deg, 0deg) scaleY(0.9);
+            transform: skew(0deg, 0deg) scaleY(0.9);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  100% {
+    -webkit-transform: skew(4deg, 0deg) scaleX(1);
+            transform: skew(4deg, 0deg) scaleX(1);
+  }
+}
+
+@keyframes strobeStart {
+  0% {
+    -webkit-transform: skew(0deg, 0deg) scaleY(1);
+            transform: skew(0deg, 0deg) scaleY(1);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  40% {
+    -webkit-transform: skew(0deg, 0deg) scaleY(0.9);
+            transform: skew(0deg, 0deg) scaleY(0.9);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  100% {
+    -webkit-transform: skew(4deg, 0deg) scaleX(1);
+            transform: skew(4deg, 0deg) scaleX(1);
+  }
+}
+
+@-webkit-keyframes myAnimation {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  25% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  50% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+  75% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes myAnimation {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  25% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  50% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+  75% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+/*# sourceMappingURL=style.css.map */
