@@ -16,7 +16,6 @@ const enterButton = document.querySelector('.enter');
 const helpButton = document.querySelector('.help');
 const inputCssSelector = document.querySelector('.selectorInput');
 let curentLevel = IDLevel;
-console.log(classLevel);
 
 function createLevel(Items) {
   const levelFragment = {
@@ -69,16 +68,13 @@ function checkCssSelector(selectorToTest) {
   if (NodesForTest.length === NodesFromLevel.length) {
     isEqualNodes = true;
     for (let i = 0; i < NodesFromLevel.length; i += 1) {
-      console.log(NodesForTest[i]);
-      console.log(NodesFromLevel[i]);
-      console.log(NodesForTest[i] === NodesFromLevel[i]);
       if (NodesForTest[i] !== NodesFromLevel[i]) {
         isEqualNodes = false;
         break;
       }
     }
   }
-  console.log(isEqualNodes);
+
   return isEqualNodes;
 }
 
@@ -93,7 +89,6 @@ function insertLevel(_level) {
 }
 
 enterButton.addEventListener('click', () => {
-  console.log(inputCssSelector.value);
   if (inputCssSelector.value) {
     if (checkCssSelector(inputCssSelector.value)) {
       alert('Succes!');
@@ -112,11 +107,9 @@ helpButton.addEventListener('click', () => {
       inputCssSelector.value += arrOfChars[i];
       i += 1;
     } else {
-			 clearInterval(interval);
+      clearInterval(interval);
     }
   }, 150);
-
-  console.log(arrOfChars);
 });
 
 insertLevel(createLevel(curentLevel.items));
@@ -126,7 +119,6 @@ const menu = document.querySelectorAll('.level');
 
 menu.forEach((menuItem) => {
   menuItem.addEventListener('click', (e) => {
-    console.log(e.target.id);
     DeleteChilds(aquariumNode);
     DeleteChilds(HTMLcodeNode);
     inputCssSelector.value = '';
