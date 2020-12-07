@@ -13,6 +13,7 @@ const aquariumNode = document.querySelector('.aquarium');
 const HTMLcodeNode = document.querySelector('.HTMLCodeNode');
 
 const enterButton = document.querySelector('.enter');
+const helpButton = document.querySelector('.help');
 const inputCssSelector = document.querySelector('.selectorInput');
 let curentLevel = IDLevel;
 console.log(classLevel);
@@ -95,11 +96,27 @@ enterButton.addEventListener('click', () => {
   console.log(inputCssSelector.value);
   if (inputCssSelector.value) {
     if (checkCssSelector(inputCssSelector.value)) {
-      alert('Win');
+      alert('Succes!');
     }
   }
 
   // console.log(document.querySelectorAll(inputCssSelector.value));
+});
+helpButton.addEventListener('click', () => {
+  inputCssSelector.value = '';
+  const arrOfChars = curentLevel.selector.split('');
+  let i = 0;
+  const thisLevel = curentLevel;
+  const interval = setInterval(() => {
+    if (i < arrOfChars.length && curentLevel === thisLevel) {
+      inputCssSelector.value += arrOfChars[i];
+      i += 1;
+    } else {
+			 clearInterval(interval);
+    }
+  }, 150);
+
+  console.log(arrOfChars);
 });
 
 insertLevel(createLevel(curentLevel.items));
