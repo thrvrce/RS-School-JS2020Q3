@@ -17,11 +17,13 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>HTML Canvas</section>
+				<section>What is HTML Canvas?</section>
 				<section>What is HTML Canvas?
 					<section>The HTML canvas element is used to draw graphics, on the fly, via JavaScript.</section>
 					<section>The canvas element is only a container for graphics. You must use JavaScript to actually draw the graphics.</section>
 					<section>Canvas has several methods for drawing paths, boxes, circles, text, and adding images.</section>
 				</section>
+				<section>History</section>
 				<section>History
 					<section>Canvas was initially introduced by Apple for use in their own Mac OS X WebKit component in 2004.</section>
 					<section> Later, in 2005 it was adopted in version 1.8 of Gecko browsers, and Opera in 2006, and standardized by the Web Hypertext Application Technology Working Group (WHATWG) on new proposed specifications for next generation web technologies.</section>
@@ -29,6 +31,7 @@
 				<section>Canvas browser support
 						<img data-src="./src/img/browser_support.PNG">
 				</section>
+				<section>What we can do using HTML canvas?</section>
 				<section>HTML Canvas can:
 					<section data-markdown>
 						<textarea data-template>
@@ -55,9 +58,87 @@
 						*Canvas methods for animations, offer a lot of possibilities for HTML gaming applications*.
 						</textarea>
 					</section>
+				</section>
+				<section>Create our first canvas element</section>
+				<section>How to create empty canvas
+					<section>To add empty canvas element use code below:
+						<pre><code data-trim >
+							<canvas id="myCanvas"
+								width="200"
+								height="100"
+							 	style="border:1px solid"></canvas>
+						</code></pre>
+						As a result we can see next element in browser window:
+						<br>
+						<img data-src="./src/img/empty_canvas_example.PNG">
+						<br>
+						This is how an empty canvas element look.
+					</section>
+					<section data-markdown>
+						<textarea data-template>
+							* The canvas element must have an id attribute so it can be referred to by JavaScript.
+							* The width and height attribute by default is 300 and 150 pixels. In this example we specify values of width and height.
+							* By default, the canvas element has no border and no content. We use a style attribute to add border.
+						</textarea>
+					</section>
+				</section>
+				<section>Let's try to draw something</section>
+				<section>HTML Canvas Drawing
+					<section>
+						<h4>Step 1: Find the Canvas Element</h4>
+						First of all, you must find the canvas element.
+						<br>
+						This is done by using the HTML DOM method getElementById():
+						<pre><code data-trim >
+							var canvas = document.getElementById("myCanvas");
+						</code></pre>
+					</section>
+					<section>
+						<h4>Step 2: Create a Drawing Object</h4>
+						Secondly, you need a drawing object for the canvas.
+						<br>
+						The getContext() is a built-in HTML object, with properties and methods for drawing:
+						<pre><code data-trim >
+							var canvas = document.getElementById("myCanvas");
+							var ctx = canvas.getContext("2d");
+						</code></pre>
+					</section>
+					<section>
+						<h4>Step 3: Draw on the Canvas</h4>
+						<ul>Finally, you can draw on the canvas:
+							<li>
+								Set the fill style of the drawing object to the color red. The fillStyle property can be a CSS color, a gradient, or a pattern. The default fillStyle is black.
+							</li>
+							<li>
+								The fillRect(x,y,width,height) method draws a rectangle, filled with the fill style, on the canvas:
+							</li>
+						</ul>
+						<pre><code data-trim >
+							var canvas = document.getElementById("myCanvas");
+							var ctx = canvas.getContext("2d");
+							ctx.fillStyle = "#FF0000";
+							ctx.fillRect(0, 0, 150, 75);
+						</code></pre>
+					</section>
+					<section>
+						<h4>As result of code below we can see red rectangle on canvas:</h4>
+						<pre><code data-trim >
+							<canvas id="myCanvas" width="200" height="100"
+							style="border:1px solid #000000;">
+							</canvas>
 
-
-
+							<script>
+							var canvas = document.getElementById("myCanvas");
+							var ctx = canvas.getContext("2d");
+							ctx.fillStyle = "#FF0000";
+							ctx.fillRect(0, 0, 150, 75);
+							</script>
+						</code></pre>
+						<img data-src="./src/img/red_rectangle.PNG">
+					</section>
+				</section>
+			</div>
+		</div>
 
 		<script src="dist/reveal.js"></script>
 		<script src="plugin/notes/notes.js"></script>
