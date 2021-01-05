@@ -8,7 +8,7 @@
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+		<link rel="stylesheet" href="dist/theme/night.css" id="theme">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
@@ -136,6 +136,75 @@
 						</code></pre>
 						<img data-src="./src/img/red_rectangle.PNG">
 					</section>
+				</section>
+
+				<section>HTML Canvas Coordinates
+					<section></section>
+					<section>
+						<!-- <h3>Canvas Coordinates</h3> -->
+						<ul>
+							<li>The HTML canvas is a two-dimensional grid.</li>
+							<li>The upper-left corner of the canvas has the coordinates (0,0)</li>
+							<li>In the previous chapter, you saw this method used: fillRect(0,0,150,75).</li>
+							<li>This means: Start at the upper-left corner (0,0) and draw a 150x75 pixels rectangle.</li>
+						</ul>
+					</section>
+				</section>
+
+				<section><h2>Draw a line</h2>
+					<section></section>
+					<section>
+						<h4>To draw a straight line on a canvas, use the following methods:</h4>
+						<ul>
+							<li>moveTo(x,y) - defines the starting point of the line</li>
+							<li>lineTo(x,y) - defines the ending point of the line</li>
+							<li>use one of the "ink" methods, like stroke() - which strokes (outlines) the current or given path with the current stroke style</li>
+						</ul>
+					</section>
+					<section>
+						As example, we define a starting point in position (0,0), and an ending point in position (200,100). Then use the stroke() method to actually draw the line:
+						<pre><code data-trim >
+							var canvas = document.getElementById("myCanvas");
+							var ctx = canvas.getContext("2d");
+							ctx.moveTo(0, 0);
+							ctx.lineTo(200, 100);
+							ctx.stroke();
+						</code></pre>
+					</section>
+					<section>
+						As a result we get line from point (x: 0, y: 0) to (x: 200, y: 100):
+						<br><img data-src="./src/img/line.PNG">
+					</section>
+				</section>
+
+				<section><h2>Draw a circle</h2>
+					<section></section>
+					<section>
+						<h4>To draw a circle on a canvas, use the following methods:</h4>
+						<ul>
+							<li>beginPath() - begins a path</li>
+							<li>arc(x,y,r,startangle,endangle) - creates an arc/curve. To create a circle: set startangle to 0, endangle to 2*Math.PI, x and y define the center of the circle, r parameter defines the radius of the circle.</li>
+							<li>use stroke() - which strokes (outlines) the current or given path with the current stroke style</li>
+						</ul>
+					</section>
+					<section>
+						As example, we define a circle with the arc() method. Then use the stroke() method to actually draw the circle:
+						<pre><code data-trim >
+							var canvas = document.getElementById("myCanvas");
+							var ctx = canvas.getContext("2d");
+							ctx.beginPath();
+							ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+							ctx.stroke();
+						</code></pre>
+					</section>
+					<section>
+						As a result we get circle with center at (x: 95, x: 40) with 40 pixels radius:
+						<br><img data-src="./src/img/circle.PNG">
+					</section>
+
+
+				</section>
+
 				</section>
 			</div>
 		</div>
