@@ -224,7 +224,7 @@
 						The addColorStop() method specifies the color stops, and its position along the gradient. Gradient positions can be anywhere between 0 to 1.
 					</section>
 					<section>Examle: createLinearGradient()
-						<pre><code data-trim data-language='javascript'>
+						<pre><code data-trim>
 							var c = document.getElementById("myCanvas");
 							var ctx = c.getContext("2d");
 
@@ -244,7 +244,7 @@
 						<br><img data-src="./src/img/createLinearGradient.PNG">
 					</section>
 					<section>Examle: createRadialGradient()
-						<pre><code data-trim data-language='javascript'>
+						<pre><code data-trim>
 							var c = document.getElementById("myCanvas");
 							var ctx = c.getContext("2d");
 
@@ -261,6 +261,43 @@
 					</section>
 					<section>As a result we get rectangle with next gradient:
 						<br><img data-src="./src/img/createRadialGradient.PNG">
+					</section>
+				</section>
+
+				<section><h2>Canvas Text</h2>
+					<section></section>
+					<section>
+						<ul><h4>To draw text on a canvas, the most important property and methods are:</h4>
+							<li>font - defines the font properties for the text.</li>
+							<li>fillText(text,x,y) - draws "filled" text on the canvas.</li>
+							<li>strokeText(text,x,y) - draws text on the canvas (no fill).</li>
+						</ul>
+					</section>
+					<section>Example: draw text using 'stroke' and 'fill' text methods
+						<pre><code data-trim>
+							var canvas = document.getElementById("myCanvas");
+							var ctx = canvas.getContext("2d");
+							ctx.font = "30px Arial";
+							ctx.strokeText("Hello World",10,50);
+							ctx.fillText("Hello World",10,80);
+						</code></pre>
+					</section>
+					<section>As a result we get 'stroked' and 'filled' text:
+						<br><img data-src="./src/img/stroked_filled_text.PNG">
+					</section>
+					<section>Example: change color, font and text align
+						<pre><code data-trim >
+							var canvas = document.getElementById("myCanvas");
+							var ctx = canvas.getContext("2d");
+							ctx.font="30px Comic Sans MS";
+							ctx.fillStyle = "red";
+							ctx.textAlign = "center";
+							ctx.fillText("Hello World", canvas.width/2, canvas.height/2);
+						</code></pre>
+						We use new method <b>textAlign()</b>, which sets or returns the current alignment for text content.
+					</section>
+					<section>As a result we get red text, with 30px Comic Sans MS font with center align:
+						<br><img data-src="./src/img/red_text.PNG">
 					</section>
 				</section>
 			</div>
