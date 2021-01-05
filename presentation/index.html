@@ -300,6 +300,116 @@
 						<br><img data-src="./src/img/red_text.PNG">
 					</section>
 				</section>
+
+				<section><h2>Canvas Images</h2>
+					<section></section>
+					<section>
+						<ol><h4>To draw an image on a canvas we can use method drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight), where:</h4>
+							<li>image - an element to draw into the context. The specification permits any canvas image source.</li>
+							<li>sx, sy - the x and y -axis coordinate of the top left corner of the sub-rectangle of the source image.</li>
+						</ol>
+					</section>
+					<section>
+						<ol>
+							<li value="3">sWidth, sHeight -the width and height of the sub-rectangle of the source image</li>
+							<li>dx, dy - the x and y -axis coordinate in the destination canvas at which to place the top-left corner of the source image.</li>
+							<li>dWidth, dHeight - the width and height to draw the image in the destination canvas. This allows scaling of the drawn image. If not specified, the image is not scaled in width when drawn.</li>
+						</ol>
+					</section>
+					<section>
+						<div style="display: flex; align-items: center; justify-content: center;">
+							<div>
+								<p>Image (id='scream'):</p>
+								<img id="scream" width="220" height="250" src="./src/img/img_the_scream.jpg" alt="The Scream">
+							</div>
+							<div>
+								<p>Canvas:</p>
+								<canvas id="myCanvas" width="300" height="270" style="border:2px solid #d3d3d3;">
+								Your browser does not support the HTML5 canvas tag.
+								</canvas>
+							</div>
+						</div>
+						<pre><code data-trim >
+							window.onload = function() {
+								var c = document.getElementById("myCanvas");
+								var ctx = c.getContext("2d");
+								var img = document.getElementById("scream");
+								ctx.drawImage(img, 10, 10);}
+						</code></pre>
+					</section>
+					<section>
+						<div style="display: flex; align-items: center; justify-content: center;">
+							<div>
+								<p>Image (id='scream'):</p>
+								<img id="scream" width="220" height="250" src="./src/img/img_the_scream.jpg" alt="The Scream">
+							</div>
+							<div>
+								<p>Canvas:</p>
+								<canvas id="myCanvasScaled" width="300" height="270" style="border:2px solid #d3d3d3;">
+								Your browser does not support the HTML5 canvas tag.
+								</canvas>
+							</div>
+						</div>
+						<pre><code data-trim >
+							window.onload = function() {
+								var cScaled = document.getElementById("myCanvasScaled");
+								var ctxScaled = cScaled.getContext("2d");
+								var imgScaled = document.getElementById("scream");
+								ctxScaled.drawImage(imgScaled, 10, 10, 100, 100);}
+						</code></pre>
+					</section>
+					<section>
+						<div style="display: flex; align-items: center; justify-content: center;">
+							<div>
+								<p>Image (id='scream'):</p>
+								<img id="scream" width="200" height="250" src="./src/img/img_the_scream.jpg" alt="The Scream">
+							</div>
+							<div>
+								<p>Canvas:</p>
+								<canvas id="myCanvasPartOfSrc" width="300" height="270" style="border:2px solid #d3d3d3;">
+								Your browser does not support the HTML5 canvas tag.
+								</canvas>
+							</div>
+						</div>
+						<pre><code data-trim >
+							window.onload = function() {
+								var cPartOfSrc = document.getElementById("myCanvasPartOfSrc");
+								var ctxPartOfSrc = cPartOfSrc.getContext("2d");
+								var imgPartOfSrc = document.getElementById("scream");
+								ctxPartOfSrc.drawImage(imgPartOfSrc, 60, 100, 100, 100, 100, 100, 100, 100);}
+						</code></pre>
+					</section>
+					<script>
+						window.onload = function() {
+							var c = document.getElementById("myCanvas");
+							var ctx = c.getContext("2d");
+							var img = document.getElementById("scream");
+							ctx.drawImage(img, 10, 10);
+
+							var cScaled = document.getElementById("myCanvasScaled");
+							var ctxScaled = cScaled.getContext("2d");
+							var imgScaled = document.getElementById("scream");
+							ctxScaled.drawImage(imgScaled, 10, 10, 100, 100);
+
+							var cPartOfSrc = document.getElementById("myCanvasPartOfSrc");
+							var ctxPartOfSrc = cPartOfSrc.getContext("2d");
+							var imgPartOfSrc = document.getElementById("scream");
+							ctxPartOfSrc.drawImage(imgPartOfSrc, 60, 100, 100, 100, 100, 100, 100, 100);
+						}
+					</script>
+				</section>
+				<section>Thank you for attention!
+					<section></section>
+					<section>
+						<ul>Used sources:
+							<li><a href="https://en.wikipedia.org/wiki/Canvas_element">en.wikipedia.org/wiki/Canvas_element</a></li>
+							<li><a href="https://www.w3schools.com/graphics/canvas_intro.asp">www.w3schools.com/graphics/canvas_intro.asp</a></li>
+							<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">developer.mozilla.org/en-US/docs/Web/API/Canvas_API</a></li>
+						</ul>
+
+					</section>
+				</section>
+
 			</div>
 		</div>
 
