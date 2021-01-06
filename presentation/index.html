@@ -21,8 +21,8 @@
 
 				<section>What is HTML Canvas?
 					<section></section>
-					<section>The HTML canvas element is used to draw graphics, on the fly, via JavaScript.</section>
-					<section>The canvas element is only a container for graphics. You must use JavaScript to actually draw the graphics.</section>
+					<section>The HTML canvas element is used to draw graphics, on the fly, via JavaScript methods.</section>
+					<section>The canvas element is only a container for graphics. You must use JavaScript to actually draw something.</section>
 					<section>Canvas has several methods for drawing paths, boxes, circles, text, and adding images.</section>
 				</section>
 
@@ -152,8 +152,7 @@
 						<ul>
 							<li>The HTML canvas is a two-dimensional grid.</li>
 							<li>The upper-left corner of the canvas has the coordinates (0,0)</li>
-							<li>In the previous chapter, you saw this method used: fillRect(0,0,150,75).</li>
-							<li>This means: Start at the upper-left corner (0,0) and draw a 150x75 pixels rectangle.</li>
+							<li>In the previous chapter we used method fillRect(0,0,150,75).This means: Start at the upper-left corner (0,0) and draw a rectangle with width 150 and height 75 pixels.</li>
 						</ul>
 					</section>
 				</section>
@@ -214,7 +213,7 @@
 					<section></section>
 					<section>Gradients can be used to fill rectangles, circles, lines, text, etc. Shapes on the canvas are not limited to solid colors.</section>
 					<section>
-						<ul><h4>There are two different types of gradients:</h4>
+						<ul><h4>There are two different methods to define gradients:</h4>
 							<li>createLinearGradient(x,y,x1,y1) - creates a linear gradient.</li>
 							<li>createRadialGradient(x,y,r,x1,y1,r1) - creates a radial/circular gradient.</li>
 						</ul>
@@ -267,7 +266,7 @@
 				<section><h2>Canvas Text</h2>
 					<section></section>
 					<section>
-						<ul><h4>To draw text on a canvas, the most important property and methods are:</h4>
+						<ul><h4>To draw text on a canvas we can use next properties and methods:</h4>
 							<li>font - defines the font properties for the text.</li>
 							<li>fillText(text,x,y) - draws "filled" text on the canvas.</li>
 							<li>strokeText(text,x,y) - draws text on the canvas (no fill).</li>
@@ -311,7 +310,7 @@
 					</section>
 					<section>
 						<ol>
-							<li value="3">sWidth, sHeight -the width and height of the sub-rectangle of the source image</li>
+							<li value="3">sWidth, sHeight -the width and height of the sub-rectangle of the source image.</li>
 							<li>dx, dy - the x and y -axis coordinate in the destination canvas at which to place the top-left corner of the source image.</li>
 							<li>dWidth, dHeight - the width and height to draw the image in the destination canvas. This allows scaling of the drawn image. If not specified, the image is not scaled in width when drawn.</li>
 						</ol>
